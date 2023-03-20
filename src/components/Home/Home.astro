@@ -8,9 +8,32 @@
         background-position: 50% center;
         width: 100%;
         height: 100%;
+        position: relative;
+        z-index: -1;
+    }
+    .artContribution{
+        position: absolute;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.5rem;
+        font-weight: 200;
+        font-family: "Spongy";
+        right: 1rem;
+        text-align: center;
+        top: 50%;
+        transform: translate(0, -50%);
+        writing-mode: vertical-lr;
+        text-shadow: 0 0 20px;
+    }
+
+    @media only screen and (max-width: 768px){
+        .artContribution{
+            display: none;
+        }
     }
 </style>
 
+{ /** This is for the furture since I want it to be interactive */}
 <canvas class="backgroundCanva">
     Your browser does not support canvas
 </canvas>
+<p class="artContribution">Art by Midjourney AI V4</p>
