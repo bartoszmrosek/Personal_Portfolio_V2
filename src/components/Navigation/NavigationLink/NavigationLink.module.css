@@ -1,0 +1,97 @@
+.navlink {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.navlink:before,
+.navlink:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+}
+
+.navlink:before {
+    top: 0;
+}
+
+.navlink:after {
+    bottom: 0;
+}
+
+.navlink:hover>span>span:before,
+.navlink:hover>span>span:after {
+    transform: translate3d(0, 0, 0);
+}
+
+.navlink:hover>span>span>span:before,
+.navlink:hover>span>span>span:after {
+    transform: translate3d(0, 0, 0);
+}
+
+.navlink>span:before,
+.navlink>span:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+}
+
+.navlink>span:before {
+    left: 0;
+}
+
+.navlink>span:after {
+    right: 0;
+}
+
+.navlink>span>span:before,
+.navlink>span>span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 9;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+}
+
+.navlink>span>span:before {
+    top: 0;
+    transform: translate3d(-105%, 0, 0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navlink>span>span:after {
+    bottom: 0;
+    transform: translate3d(105%, 0, 0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navlink>span>span>span:before,
+.navlink>span>span>span:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    height: 100%;
+    width: 2px;
+    background-color: currentColor;
+}
+
+.navlink>span>span>span:before {
+    left: 0;
+    transform: translate3d(0, 105%, 0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navlink>span>span>span:after {
+    right: 0;
+    transform: translate3d(0, -105%, 0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
