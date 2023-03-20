@@ -1,0 +1,25 @@
+{
+  "name": "bartosz-mrosek-portfolio-neon",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && tsc --noEmit && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@astrojs/react": "^2.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "astro": "^2.0.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vitest": "^0.20.3"
+  },
+  "devDependencies": {
+    "typescript-plugin-css-modules": "^4.2.3"
+  }
+}
