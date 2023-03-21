@@ -1,6 +1,7 @@
 .navbar{
     position: absolute;
     top: 0;
+    z-index: 9999;
 }
 
 .drawer-list {
@@ -18,7 +19,8 @@
     transition: width 475ms ease-out, transform 450ms ease,
         border-radius 0.8s 0.1s ease;
     border-bottom-left-radius: 100vw;
-    background-color: rgba(0,0,0, 0.8);
+    background-color: rgba(0,0,0, 0.85);
+    backdrop-filter: blur(4px);
 }
 
 @media (min-width: 768px) {
