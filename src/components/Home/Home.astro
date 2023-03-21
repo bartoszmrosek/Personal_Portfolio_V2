@@ -1,97 +1,162 @@
 ---
 ---
+
 <style>
-    .canvaWrapper{
-        width: 100%;
-        height: 100%;
-        position: absolute;
+  @font-face {
+    font-family: "JetMono";
+    src: url("/fonts/JetMono.ttf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+  .canvaWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .backgroundCanva {
+    background-image: url("background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -1;
+  }
+  .artContribution {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    font-weight: 200;
+    font-family: "Spongy";
+    right: 1rem;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    writing-mode: vertical-lr;
+    text-shadow: 0 0 20px;
+  }
+
+  .homeIntroduction {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    text-align: start;
+    margin: 0 4em;
+
+    transition: transform 1s ease-in;
+
+    color: rgba(255, 255, 255, 0.61);
+  }
+
+  #typewriterAnchor {
+    font-size: 225%;
+  }
+
+  .htmlDecorators {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-family: "JetMono";
+    font-style: italic;
+    font-size: 150%;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .htmlDecorators > .topGroup {
+    margin-top: 5rem;
+  }
+
+  .htmlDecorators > .bottomGroup {
+    margin-bottom: 3rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .homeIntroduction {
+      margin: 0 2em;
+    }
+    .artContribution {
+      display: none;
+    }
+    .htmlDecorators > .topGroup {
+      margin-top: 2rem;
     }
 
-    .backgroundCanva{
-        background-image: url("background.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% center;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        z-index: -1;
+    .htmlDecorators > .topGroup,
+    .htmlDecorators > .bottomGroup {
+      width: 50%;
     }
-    .artContribution{
-        position: absolute;
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 1.5rem;
-        font-weight: 200;
-        font-family: "Spongy";
-        right: 1rem;
-        text-align: center;
-        top: 50%;
-        transform: translate(0, -50%);
-        writing-mode: vertical-lr;
-        text-shadow: 0 0 20px;
-    }
+  }
 
-    .homeIntroduction{
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1;
-        text-align: start;
-        margin: 0 4em;
-
-        color: rgba(255, 255, 255, 0.61);
+  @media only screen and (max-width: 1280px) {
+    #typewriterAnchor {
+      font-size: 175%;
     }
-
-    #typewriterAnchor{
-        font-size: 175%;
+  }
+  @media only screen and (max-width: 570px) {
+    #typewriterAnchor {
+      font-size: 125%;
     }
-
-    @media only screen and (max-width: 768px){
-        .artContribution{
-            display: none;
-        }
-    }
-
-    @media only screen and (max-width: 570px) {
-    #typewriterAnchor{
-        font-size: 125%;
-    }
-}
+  }
 </style>
 
 <script>
-import TypeWriter from "typewriter-effect/dist/core.js"
-import type {TypewriterClass, TypewriterState} from 'typewriter-effect'
+  import TypeWriter from "typewriter-effect/dist/core.js";
+  import type { TypewriterClass, TypewriterState } from "typewriter-effect";
 
-    const changeFont = (state: TypewriterState)=>{
-        state.elements.cursor.style.fontSize = "2.25rem"
-        state.elements.cursor.style.transform = "translate(0, 10%)"
-    }
+  const changeFont = (state: TypewriterState) => {
+    state.elements.cursor.style.fontSize = "2.25rem";
+    state.elements.cursor.style.transform = "translate(0, 10%)";
+  };
 
-    const typeWriterAnchor = document.getElementById("typewriterAnchor")
-    const typewriter: TypewriterClass = new TypeWriter(typeWriterAnchor!, {});
+  const typeWriterAnchor = document.getElementById("typewriterAnchor");
+  const typewriter: TypewriterClass = new TypeWriter(typeWriterAnchor!, {});
 
-    typewriter.typeString("<span>Hi, my name is</span><br />")
-                .callFunction(changeFont)
-                .pauseFor(300)
-                .typeString("<span class='neonWhite name'>Bartosz Mrosek</span><br />")
-                .pauseFor(300)
-                .typeString("<h1 class='title'> I am <span class='neonDarkBlue'>Frontend Engin</span></h1>")
-                .pauseFor(300)
-                .deleteChars(5)
-                .typeString("<h1 class='title'><span class='neonDarkBlue'>Developer</span></h1>")
-                .start()
+  typewriter
+    .typeString("<span>Hi, my name is</span><br />")
+    .callFunction(changeFont)
+    .pauseFor(300)
+    .typeString("<span class='neonWhite name'>Bartosz Mrosek</span><br />")
+    .pauseFor(300)
+    .typeString(
+      "<h1 class='title'> I am <span class='neonDarkBlue'>Frontend Engin</span></h1>"
+    )
+    .pauseFor(300)
+    .deleteChars(5)
+    .typeString(
+      "<h1 class='title'><span class='neonDarkBlue'>Developer</span></h1>"
+    )
+    .start();
 </script>
 
-{ /** This is for the furture since I want it to be interactive */}
+{/** This is for the furture since I want it to be interactive */}
 <section class="homeIntroduction">
-    <span id="typewriterAnchor"></span>
+  <span id="typewriterAnchor"></span>
 </section>
 <div class="canvaWrapper">
-    <canvas class="backgroundCanva">
-        Your browser does not support canvas
-    </canvas>
+  <canvas class="backgroundCanva"> Your browser does not support canvas</canvas>
 </div>
 <p class="artContribution">Art by Midjourney AI V4</p>
+<div class="htmlDecorators">
+  <div class="topGroup">
+    <pre>
+    &lt;body&gt;
+        &lt;section id="Home"&gt;
+    </pre>
+  </div>
+  <div class="bottomGroup">
+    <pre>
+      &lt;/section&gt;
+    </pre>
+  </div>
+</div>

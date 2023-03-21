@@ -1,91 +1,95 @@
-:root{
-    --neonPink: #BF02AC;
-    --neonBlue: #11F4FA;
-    --neonDarkBlue: #2C52FB;
-    --neonYellow: #E2FD10;
-    --neonPurple: #9500C4;
+:root {
+  --neonPink: #bf02ac;
+  --neonBlue: #11f4fa;
+  --neonDarkBlue: #2c52fb;
+  --neonYellow: #e2fd10;
+  --neonPurple: #9500c4;
 }
 
 @font-face {
-    font-family: "Spongy";
-    src: url("public/fonts/Spongy.ttf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Spongy";
+  src: url("/fonts/spongy.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "LeagueSpartan";
-    src: url("public/fonts/LeagueSpartan.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "LeagueSpartan";
+  src: url("/fonts/LeagueSpartan.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "LeagueSpartan";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body,
 main {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.neonRed{
-    color: var(--neonPink) !important;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+body {
+  font-family: "LeagueSpartan";
 }
 
-.neonBlue{
-    color: var(--neonBlue) !important;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+.neonRed {
+  color: var(--neonPink) !important;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-.neonDarkBlue{
-    color: var(--neonDarkBlue) !important;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+.neonBlue {
+  color: var(--neonBlue) !important;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-.neonYellow{
-    color: var(--neonYellow) !important;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+.neonDarkBlue {
+  color: var(--neonDarkBlue) !important;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-.neonPurple{
-    color: var(--neonPurple) !important;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+.neonYellow {
+  color: var(--neonYellow) !important;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-.neonWhite{
-    color: wheat;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
+.neonPurple {
+  color: var(--neonPurple) !important;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-.neonBorder{
-    border: currentColor 0.125em solid;
-    border-radius: 0.25em;
-
-    box-shadow: inset 0 0 0.5em 0 currentColor, 0 0 0.5em 0 currentColor;
+.neonWhite {
+  color: wheat;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em currentColor;
 }
 
-   .name{
-       letter-spacing: 4px;
-       margin: 0.5rem 0;
-       font-size: 2.25rem;
-       display: inline;
-   }
+.neonBorder {
+  border: currentColor 0.125em solid;
+  border-radius: 0.25em;
 
-   .title{
-       letter-spacing: 3px;
-       display: inline;
-   }
+  box-shadow: inset 0 0 0.5em 0 currentColor, 0 0 0.5em 0 currentColor;
+}
 
-   .Typewriter__cursor{
-        display: inline-block;
-        transform: translate(0, 10%);
-   }
+.name {
+  letter-spacing: 4px;
+  margin: 0.5rem 0;
+  font-size: 2.25rem;
+  display: inline;
+}
+
+.title {
+  letter-spacing: 3px;
+  display: inline;
+  font-size: 2.5rem;
+}
+
+.Typewriter__cursor {
+  display: inline-block;
+  transform: translate(0, 10%);
+}
