@@ -1,5 +1,4 @@
 ---
-import sopraSrc from "./sopra.jfif";
 ---
 
 <style>
@@ -11,7 +10,7 @@ import sopraSrc from "./sopra.jfif";
     flex-direction: row;
     justify-content: space-around;
 
-    margin-top: 6rem;
+    padding-top: 9rem;
     padding-bottom: 4rem;
   }
 
@@ -49,13 +48,23 @@ import sopraSrc from "./sopra.jfif";
     --neonBorderColor: var(--neonBlue);
   }
 
+  .cardMainWrapper {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .cardMain {
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
   }
 
   .htmlDecorators {
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
 
   .htmlDecorators > .topGroup {
@@ -65,12 +74,14 @@ import sopraSrc from "./sopra.jfif";
 
   .htmlDecorators > .bottomGroup {
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
   }
 
-  @media only screen and (max-width: 1366px) {
+  @media only screen and (max-width: 1500px) {
     .experienceWrapper {
       flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
     }
 
     .card {
@@ -78,6 +89,14 @@ import sopraSrc from "./sopra.jfif";
       margin: 0 1rem;
 
       width: 90%;
+    }
+
+    .htmlDecorators > .topGroup {
+      top: -4rem;
+    }
+
+    .htmlDecorators > .bottomGroup {
+      bottom: -3rem;
     }
   }
 </style>
@@ -87,20 +106,49 @@ import sopraSrc from "./sopra.jfif";
     <h1 class="neonRed">Sopra Steria Polska</h1>
     <h4 class="neonWhite">Intern</h4>
     <h6>09.2022</h6>
-    <p class="cardMain">
-      During my final internship experience during school, I was working on
-      improving my interpersonal skills as <i><u>First Line Support</u></i> for a
-      big international company. My tasks involved providing IT support, troubleshooting
-      network switches, and assisting applicants with the use of the <i
-        ><u>English language</u></i
-      >. Thanks to this opportunity I quickly learned to find solutions while
-      working with non-IT individuals and successfully tested my language skills
-      in industry, despite initial challenges.
-    </p>
+    <div class="cardMainWrapper">
+      <p class="cardMain">
+        During my final internship experience in school, I was working on
+        improving my interpersonal skills as <i><u>First Line Support</u></i> for
+        a big international company.
+      </p>
+      <p>
+        My tasks involved providing IT support, troubleshooting network
+        switches, and assisting applicants with the use of the <i
+          ><u>English language</u></i
+        >.
+      </p>
+      <p>
+        Thanks to this opportunity I quickly learned to find solutions while
+        working with non-IT individuals and successfully tested my language
+        skills in industry, despite initial challenges.
+      </p>
+    </div>
   </section>
   <section class="card neonBorder">
-    <h1 class="neonGreen">Adient</h1>
-    <h5 class="neonWhite">Intern</h5>
+    <h1 class="neonGreen">Adient Seating Poland</h1>
+    <h4 class="neonWhite">Intern</h4>
+    <h6>03.2022-04.2022</h6>
+    <div class="cardMainWrapper">
+      <p class="cardMain">
+        During my internship, I had the opportunity to gain practical experience
+        and enhance my skills in the field of information technology.
+      </p>
+      <p>
+        One of my most significant achievements during this internship was
+        successfully <u><i>configuring UPS network modules</i></u> that were previously
+        faulty. This led to a considerable improvement in the response time of the
+        IT team, enabling them to address any problems that arose from remote offices
+        promptly.
+      </p>
+      <p>
+        As part of my role, I provided support to other team members and
+        contributed to the refactoring of <u><i>legacy Javascript code</i></u>.
+        This experience helped me to develop a deeper understanding of software
+        development practices and the importance of collaboration in achieving
+        successful outcomes.
+      </p>
+    </div>
   </section>
   <section class="card neonBorder">
     <h1 class="neonBlue">O&amp;S Computer-Soft</h1>
