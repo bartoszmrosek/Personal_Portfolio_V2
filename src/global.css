@@ -86,6 +86,20 @@ body {
     0 0 0.5em 0 var(--neonBorderColor, currentColor);
 }
 
+.htmlDecorators {
+  position: absolute;
+
+  font-family: "JetMono";
+  font-style: italic;
+  font-size: 150%;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.3);
+  z-index: -1;
+
+  user-select: none;
+}
+
 .name {
   letter-spacing: 4px;
   margin: 0.5rem 0;
