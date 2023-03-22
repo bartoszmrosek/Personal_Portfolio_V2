@@ -117,3 +117,7 @@ body {
   display: inline-block;
   transform: translate(0, 10%);
 }
+
+.movingInAnimation {
+  opacity: 1;
+}

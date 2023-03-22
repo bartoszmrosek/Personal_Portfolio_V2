@@ -36,6 +36,10 @@ import "../global.css";
             }
           });
         }
+
+        if (entry.isIntersecting && entry.target.id === "Experience") {
+          entry.target.classList.add("movingInAnimation");
+        }
       });
     },
     { rootMargin: "0px", threshold: 0.5 }
