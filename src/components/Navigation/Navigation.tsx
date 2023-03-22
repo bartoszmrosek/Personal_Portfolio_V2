@@ -44,11 +44,7 @@ const NavigationMobile: React.FC = () => {
           <section className={`${styles["drawer-list"]}`}>
             <ul>
               <li>
-                <a
-                  href="#Home"
-                  className="neonYellow neonBorder"
-                  onClick={closeNavbar}
-                >
+                <a href="#Home" className="neonYellow" onClick={closeNavbar}>
                   Home
                 </a>
               </li>
@@ -76,7 +72,10 @@ const NavigationMobile: React.FC = () => {
           </section>
         </nav>
       ) : (
-        <nav className={`${styles.navbar} ${styles["navbar-desktop"]}`}>
+        <nav
+          className={`${styles.navbar} ${styles["navbar-desktop"]}`}
+          id="desktopNavLinks"
+        >
           <a>I</a>
           <NavigationLink href="#Home" className="neonYellow neonBorder">
             Home

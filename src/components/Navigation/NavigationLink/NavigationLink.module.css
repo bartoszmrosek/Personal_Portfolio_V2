@@ -4,6 +4,9 @@
   padding: 0.5em 2em;
   cursor: pointer;
   overflow: hidden;
+
+  border: transparent 0.125em solid;
+  transition: border 1s linear, box-shadow 1s linear;
 }
 
 .navlink:before,

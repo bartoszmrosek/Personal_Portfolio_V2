@@ -14,6 +14,43 @@ import "../global.css";
   }
 </style>
 
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const desktopNavbar = document.getElementById("desktopNavLinks");
+
+      // Check for which navbar to modify
+      let currentListOfNavLinks: HTMLAnchorElement[] = [];
+      if (desktopNavbar) {
+        desktopNavbar.childNodes.forEach((el) =>
+          currentListOfNavLinks.push(el as HTMLAnchorElement)
+        );
+      }
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && currentListOfNavLinks.length > 0) {
+          currentListOfNavLinks.forEach((navlink) => {
+            navlink.classList.remove("neonBorder");
+            if (navlink.href.includes(`#${entry.target.id}`)) {
+              navlink.classList.add("neonBorder");
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: "0px", threshold: 0.5 }
+  );
+
+  const allSections = [
+    document.getElementById("Home"),
+    document.getElementById("Experience"),
+  ];
+
+  window.addEventListener("load", () => {
+    allSections.forEach((el) => observer.observe(el!));
+  });
+</script>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
