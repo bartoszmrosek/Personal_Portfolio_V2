@@ -122,25 +122,32 @@
   const typeWriterAnchor = document.getElementById("typewriterAnchor");
   const typewriter: TypewriterClass = new TypeWriter(typeWriterAnchor!, {});
 
-  typewriter
-    .typeString("<span>Hi, my name is</span><br />")
-    .callFunction(changeFont)
-    .pauseFor(300)
-    .typeString("<span class='neonWhite name'>Bartosz Mrosek</span><br />")
-    .pauseFor(300)
-    .typeString(
-      "<h1 class='title'> I am <span class='neonDarkBlue'>Frontend Engin</span></h1>"
-    )
-    .pauseFor(300)
-    .deleteChars(5)
-    .typeString(
-      "<h1 class='title'><span class='neonDarkBlue'>Developer</span></h1>"
-    )
-    .start();
+  window.addEventListener("load", () => {
+    typewriter
+      .typeString("<span>Hi, my name is</span><br />")
+      .callFunction(changeFont)
+      .pauseFor(300)
+      .typeString("<span class='neonWhite name'>Bartosz Mrosek</span><br />")
+      .pauseFor(300)
+      .typeString(
+        "<h1 class='title'> I am <span class='neonBlue'>ReactJs Developer</span></h1>"
+      )
+      .pauseFor(300)
+      .deleteChars(17)
+      .typeString(
+        "<h1 class='title'><span class='neonGreen'>NodeJs Developer</span></h1>"
+      )
+      .pauseFor(300)
+      .deleteChars(16)
+      .typeString(
+        "<h1 class='title'><span class='neonDarkBlue'>Fullstack Developer</span></h1>"
+      )
+      .start();
+  });
 </script>
 
 {/** This is for the furture since I want it to be interactive */}
-<section class="homeIntroduction">
+<section class="homeIntroduction" id="Home">
   <span id="typewriterAnchor"></span>
 </section>
 <div class="canvaWrapper">

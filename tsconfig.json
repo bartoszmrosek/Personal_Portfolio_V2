@@ -6,6 +6,6 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "ignoreDeprecations": "5.0"
   },
-  "include": ["typewriter.d.ts", "./src/"],
+  "include": ["modules.d.ts", "./src/"],
   "exclude": ["vitest.config.ts"]
 }
