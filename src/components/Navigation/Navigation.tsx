@@ -1,26 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useMobile } from "../../hooks/useMobile";
 import styles from "./Navigation.module.css";
 import NavigationLink from "./NavigationLink/NavigationLink";
 
 const NavigationMobile: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const hamburgerRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [isMobile] = useMobile(768);
 
   const closeNavbar = useCallback(() => {
     if (hamburgerRef.current) {
@@ -54,7 +39,7 @@ const NavigationMobile: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="neonBlue" onClick={closeNavbar}>
+                <a href="#Projects" className="neonBlue" onClick={closeNavbar}>
                   Projects
                 </a>
               </li>
@@ -83,7 +68,7 @@ const NavigationMobile: React.FC = () => {
           <NavigationLink href="#Experience" className="neonRed">
             Experience
           </NavigationLink>
-          <NavigationLink href="#" className="neonBlue">
+          <NavigationLink href="#Projects" className="neonBlue">
             Projects
           </NavigationLink>
           <NavigationLink href="#" className="neonDarkBlue">

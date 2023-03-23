@@ -2,6 +2,7 @@
 import Experience from "../components/Experience/Experience.astro";
 import Home from "../components/Home/Home.astro";
 import NavigationMobile from "../components/Navigation/Navigation.jsx";
+import Projects from "../components/Projects/Projects.jsx";
 import "../global.css";
 ---
 
@@ -11,6 +12,15 @@ import "../global.css";
     display: flex;
     width: 100%;
     height: 100%;
+  }
+  .projectsWrapper {
+    min-height: 100%;
+    padding-top: 6rem;
+    position: relative;
+  }
+  .projectsTopGroup {
+    position: absolute;
+    top: 3rem;
   }
 </style>
 
@@ -47,6 +57,7 @@ import "../global.css";
   const allSections = [
     document.getElementById("Home"),
     document.getElementById("Experience"),
+    document.getElementById("Projects"),
   ];
 
   window.addEventListener("load", () => {
@@ -70,6 +81,14 @@ import "../global.css";
         <Home />
       </div>
       <Experience />
+      <section id="Projects" class="projectsWrapper">
+        <div class="projectsTopGroup htmlDecorators">
+          <pre>
+  &lt;section id="Projects"&gt;
+  </pre>
+        </div>
+        <Projects client:idle client:only="react" />
+      </section>
     </main>
   </body>
 </html>
