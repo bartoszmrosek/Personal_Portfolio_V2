@@ -1,85 +1,92 @@
 import { useCallback, useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
-import styles from "./Projects.module.css";
-import messengerSrc from "./messenger-screenshot.png";
-import hexagonSrc from "./hexagonal-screenshot.png";
-import dashboardSrc from "./dashboard-screenshot.png";
-
-interface ProjectImgProps {
-  id: number;
-  isActive: boolean;
-  handleImgClick: (id: number) => void;
-  src: string;
-}
-const ProjectImg: React.FC<ProjectImgProps> = ({
-  id,
-  isActive,
-  handleImgClick,
-  src,
-}) => {
-  const handleClick = useCallback(() => {
-    handleImgClick(id);
-  }, [handleImgClick]);
-  return (
-    <img
-      src={src}
-      className={`${styles.preview} ${isActive ? styles.active : null}`}
-      onClick={handleClick}
-    />
-  );
-};
+import messengerSrc from "./images/messenger-screenshot.png";
+import hexagonalSrc from "./images/hexagonal-screenshot.png";
+import dashboardSrc from "./images/dashboard-screenshot.png";
+import type { Project } from "./project";
+import ProjectMobileTemplate from "./ProjectMobileTemplate/ProjectMobileTemplate";
 
 const Projects: React.FC = () => {
   const [isMobile] = useMobile(767);
-  const initialImages = [
-    { id: 1, isActive: false },
-    { id: 2, isActive: false },
-    { id: 3, isActive: false },
+  const initalProjects: Project[] = [
+    {
+      title: "Messenger app",
+      links: {
+        liveLink: "https://emotekpl-messenger-dev.netlify.app/",
+        repoLink: "https://github.com/bartoszmrosek/messenger_app",
+      },
+      imageInformations: {
+        id: 1,
+        isActive: false,
+        src: messengerSrc,
+      },
+    },
+    {
+      title: "Hexagonal 2048",
+      links: {
+        liveLink: "https://bmrosek-hex2048.netlify.app/",
+        repoLink: "",
+      },
+      imageInformations: {
+        id: 2,
+        isActive: false,
+        src: hexagonalSrc,
+      },
+    },
+    {
+      title: "E-commerce dashboard",
+      links: {
+        liveLink: "https://bmrosek-commerce.netlify.app/dashboard",
+        repoLink: "https://github.com/bartoszmrosek/E_commerce_webpage",
+      },
+      imageInformations: {
+        id: 3,
+        isActive: false,
+        src: dashboardSrc,
+      },
+    },
   ];
-  const [images, setImages] =
-    useState<{ id: number; isActive: boolean }[]>(initialImages);
+  const [projects, setProjects] = useState<Project[]>(initalProjects);
 
-  const handleImgClick = useCallback((id: number) => {
-    setImages((prevImages) =>
-      prevImages.map((image) =>
-        image.id === id
-          ? { ...image, isActive: !image.isActive }
-          : { ...image, isActive: false }
+  const chgImgView = useCallback((id: number) => {
+    setProjects((prevProjects) =>
+      prevProjects.map((project) =>
+        project.imageInformations.id === id
+          ? {
+              ...project,
+              imageInformations: {
+                ...project.imageInformations,
+                isActive: !project.imageInformations.isActive,
+              },
+            }
+          : {
+              ...project,
+              imageInformations: {
+                ...project.imageInformations,
+                isActive: false,
+              },
+            }
       )
     );
   }, []);
 
   return (
     <>
-      <section className={styles.project}>
-        <h1 className={`${styles.projectHeader} neonWhite`}>Messenger App</h1>
-        <ProjectImg
-          isActive={images[0].isActive}
-          id={images[0].id}
-          handleImgClick={handleImgClick}
-          src={messengerSrc}
-        />
-      </section>
-      <section className={styles.project}>
-        <h1 className={`${styles.projectHeader} neonWhite`}>Hexagonal 2048</h1>
-        <ProjectImg
-          isActive={images[1].isActive}
-          id={images[1].id}
-          handleImgClick={handleImgClick}
-          src={hexagonSrc}
-        />
-      </section>
-      <section className={styles.project}>
-        <h1 className={`${styles.projectHeader} neonWhite`}>
-          E-commerce dasboard
-        </h1>
-        <ProjectImg
-          isActive={images[2].isActive}
-          id={images[2].id}
-          handleImgClick={handleImgClick}
-          src={dashboardSrc}
-        />
-      </section>
+      {isMobile ? (
+        <>
+          {projects.map((project) => (
+            <ProjectMobileTemplate
+              key={project.title}
+              chgImgView={chgImgView}
+              imageInformations={project.imageInformations}
+              title={project.title}
+              links={project.links}
+            />
+          ))}
+        </>
+      ) : (
+        <>Placeholder</>
+      )}
     </>
   );
 };

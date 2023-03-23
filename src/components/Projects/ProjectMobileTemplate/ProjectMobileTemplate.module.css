@@ -1,0 +1,84 @@
+.project {
+  max-width: 100%;
+  height: min-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectHeader {
+  font-size: 150%;
+}
+
+.preview {
+  width: 60%;
+  height: 50%;
+
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+
+  transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
+    scale(0.95, 0.95);
+  border-radius: 20px;
+  border: 5px solid rgba(255, 255, 255, 0.61);
+  box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease-in-out transform, margin-top 0.4s ease-in-out;
+}
+
+.active {
+  transform: translate3d(0px, 0px, -250px);
+  margin-top: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 90%;
+
+  gap: 0.75rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.link {
+  width: 100%;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  border-radius: 1rem;
+}
+
+.liveLink {
+  color: antiquewhite;
+  border: antiquewhite 2px solid;
+}
+
+.repoLink {
+  color: #6e5494;
+  border: #6e5494 2px solid;
+  gap: 0.25rem;
+}
+
+.notAvailable {
+  filter: brightness(0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
