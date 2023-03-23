@@ -16,11 +16,17 @@ import "../global.css";
   .projectsWrapper {
     min-height: 100%;
     padding-top: 6rem;
+    padding-bottom: 3rem;
     position: relative;
   }
   .projectsTopGroup {
     position: absolute;
     top: 3rem;
+  }
+
+  .projectsBottomGroup {
+    position: absolute;
+    bottom: 0;
   }
 </style>
 
@@ -88,6 +94,11 @@ import "../global.css";
   </pre>
         </div>
         <Projects client:idle client:only="react" />
+        <div class="projectsBottomGroup htmlDecorators">
+          <pre>
+  &lt;/section&gt;
+  </pre>
+        </div>
       </section>
     </main>
   </body>

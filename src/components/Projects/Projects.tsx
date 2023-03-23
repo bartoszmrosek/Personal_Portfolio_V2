@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
   return (
     <>
       <section className={styles.project}>
-        <h1>Messenger App</h1>
+        <h1 className={`${styles.projectHeader} neonWhite`}>Messenger App</h1>
         <ProjectImg
           isActive={images[0].isActive}
           id={images[0].id}
@@ -61,7 +61,7 @@ const Projects: React.FC = () => {
         />
       </section>
       <section className={styles.project}>
-        <h1>Hexagonal 2048</h1>
+        <h1 className={`${styles.projectHeader} neonWhite`}>Hexagonal 2048</h1>
         <ProjectImg
           isActive={images[1].isActive}
           id={images[1].id}
@@ -70,7 +70,9 @@ const Projects: React.FC = () => {
         />
       </section>
       <section className={styles.project}>
-        <h1>E-commerce dasboard</h1>
+        <h1 className={`${styles.projectHeader} neonWhite`}>
+          E-commerce dasboard
+        </h1>
         <ProjectImg
           isActive={images[2].isActive}
           id={images[2].id}

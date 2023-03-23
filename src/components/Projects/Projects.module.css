@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.projectHeader {
+  font-size: 150%;
+}
+
 .preview {
   width: 60%;
   height: 50%;
