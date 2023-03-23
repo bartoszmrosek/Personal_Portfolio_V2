@@ -2,7 +2,8 @@ export type Project = {
   imageInformations: {
     id: number;
     isActive: boolean;
-    src: string;
+    mobileSrc: string;
+    dekstopSrc: string;
   };
   title: string;
   links: {

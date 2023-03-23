@@ -1,13 +1,25 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
+
 import messengerSrc from "./images/messenger-screenshot.png";
 import hexagonalSrc from "./images/hexagonal-screenshot.png";
 import dashboardSrc from "./images/dashboard-screenshot.png";
+
+import messengerDesktopSrc from "./images/messenger-desktop-screenshot.png";
+import hexagonalDesktopSrc from "./images/hexagonal-desktop-screenshot.png";
+import dashboardDesktopSrc from "./images/dashboard-desktop-screenshot.png";
+
 import type { Project } from "./project";
 import ProjectMobileTemplate from "./ProjectMobileTemplate/ProjectMobileTemplate";
 
 const Projects: React.FC = () => {
   const [isMobile] = useMobile(767);
+  const imageRefs = [
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+  ] as const;
+  const ownRef = useRef(true);
   const initalProjects: Project[] = [
     {
       title: "Messenger app",
@@ -18,7 +30,8 @@ const Projects: React.FC = () => {
       imageInformations: {
         id: 1,
         isActive: false,
-        src: messengerSrc,
+        mobileSrc: messengerSrc,
+        dekstopSrc: messengerDesktopSrc,
       },
     },
     {
@@ -30,7 +43,8 @@ const Projects: React.FC = () => {
       imageInformations: {
         id: 2,
         isActive: false,
-        src: hexagonalSrc,
+        mobileSrc: hexagonalSrc,
+        dekstopSrc: hexagonalDesktopSrc,
       },
     },
     {
@@ -42,7 +56,8 @@ const Projects: React.FC = () => {
       imageInformations: {
         id: 3,
         isActive: false,
-        src: dashboardSrc,
+        mobileSrc: dashboardSrc,
+        dekstopSrc: dashboardDesktopSrc,
       },
     },
   ];
@@ -56,7 +71,7 @@ const Projects: React.FC = () => {
               ...project,
               imageInformations: {
                 ...project.imageInformations,
-                isActive: !project.imageInformations.isActive,
+                isActive: true,
               },
             }
           : {
@@ -70,17 +85,42 @@ const Projects: React.FC = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const entryId =
+              parseInt(entry.target.id.at(entry.target.id.length - 1)!) ?? 0;
+            chgImgView(entryId);
+          }
+        });
+      },
+      { rootMargin: "0px", threshold: 0.5 }
+    );
+    if (
+      imageRefs.every((imageRef) => imageRef.current !== null) &&
+      ownRef.current
+    ) {
+      // Checks for nulls so typescript shouldn`t have problem about it
+      imageRefs.forEach((imgRef) => observer.observe(imgRef.current!));
+      ownRef.current = false;
+    }
+  }, [imageRefs]);
+
   return (
     <>
       {isMobile ? (
         <>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <ProjectMobileTemplate
               key={project.title}
               chgImgView={chgImgView}
               imageInformations={project.imageInformations}
               title={project.title}
               links={project.links}
+              // Weird workaround for intersection observer
+              ref={imageRefs[2 - index]}
             />
           ))}
         </>

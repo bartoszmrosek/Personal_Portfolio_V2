@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { forwardRef, useCallback } from "react";
 import styles from "./ProjectMobileTemplate.module.css";
 import type { Project } from "../project";
 
@@ -26,34 +26,26 @@ const ProjectImg: React.FC<ProjectImgProps> = ({
   );
 };
 
-const ProjectMobileTemplate: React.FC<
+const ProjectMobileTemplate = forwardRef<
+  HTMLDivElement,
   Project & { chgImgView: (id: number) => void }
-> = ({ imageInformations, title, links, chgImgView: chgImgView }) => {
-  const imgRef = useRef<HTMLDivElement>(null!);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(() => {
-          chgImgView(imageInformations.id);
-        });
-      },
-      { rootMargin: "0px", threshold: 0.75 }
-    );
-    observer.observe(imgRef.current);
-
-    return () => observer.unobserve(imgRef.current);
-  }, []);
-
+>(function ProjectMobileTemplate(
+  { imageInformations, title, links, chgImgView: chgImgView },
+  ref
+) {
   return (
     <section className={styles.project}>
       <h1 className={`${styles.projectHeader} neonWhite`}>{title}</h1>
-      <div className={styles.imageWrapper} ref={imgRef}>
+      <div
+        className={styles.imageWrapper}
+        ref={ref}
+        id={`Image#${imageInformations.id}`}
+      >
         <ProjectImg
           isActive={imageInformations.isActive}
           id={imageInformations.id}
           chgImgView={chgImgView}
-          src={imageInformations.src}
+          src={imageInformations.mobileSrc}
         />
       </div>
       <div className={styles.links}>
@@ -98,6 +90,6 @@ const ProjectMobileTemplate: React.FC<
       </div>
     </section>
   );
-};
+});
 
 export default ProjectMobileTemplate;

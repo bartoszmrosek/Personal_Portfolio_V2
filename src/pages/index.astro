@@ -15,18 +15,26 @@ import "../global.css";
   }
   .projectsWrapper {
     min-height: 100%;
-    padding-top: 6rem;
+    padding-top: 7.5rem;
     padding-bottom: 3rem;
     position: relative;
   }
   .projectsTopGroup {
     position: absolute;
-    top: 3rem;
+    top: 5rem;
   }
 
   .projectsBottomGroup {
     position: absolute;
     bottom: 0;
+  }
+  @media only screen and (max-width: 767px) {
+    .projectsWrapper {
+      padding-top: 6rem;
+    }
+    .projectsTopGroup {
+      top: 3rem;
+    }
   }
 </style>
 
@@ -91,13 +99,13 @@ import "../global.css";
         <div class="projectsTopGroup htmlDecorators">
           <pre>
   &lt;section id="Projects"&gt;
-  </pre>
+          </pre>
         </div>
         <Projects client:idle client:only="react" />
         <div class="projectsBottomGroup htmlDecorators">
           <pre>
   &lt;/section&gt;
-  </pre>
+          </pre>
         </div>
       </section>
     </main>
