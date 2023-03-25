@@ -53,6 +53,8 @@ const ProjectMobileTemplate = forwardRef<
         <a
           href={links.liveLink}
           className={`${styles.liveLink} ${styles.link}`}
+          target="_blank"
+          referrerPolicy="no-referrer"
         >
           <span>Live</span>
           <SvgRepo type="Link" size={{ width: "2rem", height: "2rem" }} />
@@ -62,6 +64,8 @@ const ProjectMobileTemplate = forwardRef<
           className={`${styles.repoLink} ${styles.link} ${
             links.repoLink.trim().length < 1 ? styles.notAvailable : null
           }`}
+          target="_blank"
+          referrerPolicy="no-referrer"
         >
           <span>
             {links.repoLink.trim().length > 0 ? "Repo" : "Not available"}

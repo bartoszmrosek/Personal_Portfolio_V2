@@ -14,7 +14,7 @@ import ProjectMobileTemplate from "./ProjectMobileTemplate/ProjectMobileTemplate
 import ProjectTemplate from "./ProjectTemplate/ProjectTemplate";
 
 const Projects: React.FC = () => {
-  const [isMobile] = useMobile(840);
+  const [isMobile] = useMobile(940);
   const imageRefs = [
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
@@ -43,7 +43,8 @@ const Projects: React.FC = () => {
         "This application is a unique implementation of the popular 2048 game using a hexagonal grid. Developed with React and Typescript, the codebase is nearly entirely covered with unit tests, achieving an impressive 90% coverage rate (with only the animation API remaining untested).",
       links: {
         liveLink: "https://bmrosek-hex2048.netlify.app/",
-        repoLink: "",
+        repoLink:
+          "https://gitfront.io/r/user-6612724/b2GvwXv3uNCv/Hexagonal-2048/",
       },
       imageInformations: {
         id: 2,

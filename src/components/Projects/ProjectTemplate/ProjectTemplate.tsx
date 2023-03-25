@@ -25,7 +25,12 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
         <h1 className={`${styles.header} neonWhite`}>{title}</h1>
         <p>{description}</p>
         <div className={styles.links}>
-          <a href={links.liveLink} className={styles.liveLink}>
+          <a
+            href={links.liveLink}
+            className={styles.liveLink}
+            target="_blank"
+            referrerPolicy="no-referrer"
+          >
             <span>Live</span>
             <SvgRepo type="Link" size={{ width: "2rem", height: "2rem" }} />
           </a>
@@ -35,6 +40,8 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
               links.repoLink.trim().length < 1 ? styles.notAvailable : null
             }`}
             onClick={interceptor}
+            target="_blank"
+            referrerPolicy="no-referrer"
           >
             <span>Repo</span>
             <SvgRepo type="Github" size={{ width: "2rem", height: "2rem" }} />
