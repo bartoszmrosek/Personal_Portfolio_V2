@@ -15,13 +15,17 @@ import "../global.css";
   }
   .projectsWrapper {
     min-height: 100%;
-    padding-top: 7.5rem;
+    padding-top: 8rem;
     padding-bottom: 3rem;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
   }
   .projectsTopGroup {
     position: absolute;
-    top: 5rem;
+    top: 5.5rem;
   }
 
   .projectsBottomGroup {
@@ -65,7 +69,7 @@ import "../global.css";
         }
       });
     },
-    { rootMargin: "0px", threshold: 0.5 }
+    { rootMargin: "0px", threshold: 0.4 }
   );
 
   const allSections = [

@@ -11,9 +11,10 @@ import dashboardDesktopSrc from "./images/dashboard-desktop-screenshot.png";
 
 import type { Project } from "./project";
 import ProjectMobileTemplate from "./ProjectMobileTemplate/ProjectMobileTemplate";
+import ProjectTemplate from "./ProjectTemplate/ProjectTemplate";
 
 const Projects: React.FC = () => {
-  const [isMobile] = useMobile(767);
+  const [isMobile] = useMobile(840);
   const imageRefs = [
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
@@ -23,6 +24,8 @@ const Projects: React.FC = () => {
   const initalProjects: Project[] = [
     {
       title: "Messenger app",
+      description:
+        "The project serves as a practical exercise in real-time communication and cloud database storage. Built entirely in Typescript, the frontend features a combination of ReactJs and Tailwindcss, while the backend utilizes NodeJs with ExpressJs. Communication is facilitated through both REST API and WebSocket connections, powered by Socket-io technology. Messages are stored in a MySQL database for optimal data management.",
       links: {
         liveLink: "https://emotekpl-messenger-dev.netlify.app/",
         repoLink: "https://github.com/bartoszmrosek/messenger_app",
@@ -36,6 +39,8 @@ const Projects: React.FC = () => {
     },
     {
       title: "Hexagonal 2048",
+      description:
+        "This application is a unique implementation of the popular 2048 game using a hexagonal grid. Developed with React and Typescript, the codebase is nearly entirely covered with unit tests, achieving an impressive 90% coverage rate (with only the animation API remaining untested).",
       links: {
         liveLink: "https://bmrosek-hex2048.netlify.app/",
         repoLink: "",
@@ -49,6 +54,8 @@ const Projects: React.FC = () => {
     },
     {
       title: "E-commerce dashboard",
+      description:
+        "Application features a single page with a subpage, enabling users to view, delete, and add shopping carts with ease. The user-friendly interface is equipped with clear, intuitive buttons and a debounced search field for effortless cart creation. Upon clicking the 'View' button, the app redirects to a dashboard subpage that displays cart products and includes a price graph for easy tracking and analysis.",
       links: {
         liveLink: "https://bmrosek-commerce.netlify.app/dashboard",
         repoLink: "https://github.com/bartoszmrosek/E_commerce_webpage",
@@ -86,25 +93,27 @@ const Projects: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const entryId =
-              parseInt(entry.target.id.at(entry.target.id.length - 1)!) ?? 0;
-            chgImgView(entryId);
-          }
-        });
-      },
-      { rootMargin: "0px", threshold: 0.5 }
-    );
-    if (
-      imageRefs.every((imageRef) => imageRef.current !== null) &&
-      ownRef.current
-    ) {
-      // Checks for nulls so typescript shouldn`t have problem about it
-      imageRefs.forEach((imgRef) => observer.observe(imgRef.current!));
-      ownRef.current = false;
+    if (isMobile) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const entryId =
+                parseInt(entry.target.id.at(entry.target.id.length - 1)!) ?? 0;
+              chgImgView(entryId);
+            }
+          });
+        },
+        { rootMargin: "0px", threshold: 0.7 }
+      );
+      if (
+        imageRefs.every((imageRef) => imageRef.current !== null) &&
+        ownRef.current
+      ) {
+        // Checks for nulls so typescript shouldn`t have problem about it
+        imageRefs.forEach((imgRef) => observer.observe(imgRef.current!));
+        ownRef.current = false;
+      }
     }
   }, [imageRefs]);
 
@@ -116,6 +125,7 @@ const Projects: React.FC = () => {
             <ProjectMobileTemplate
               key={project.title}
               chgImgView={chgImgView}
+              description={project.description}
               imageInformations={project.imageInformations}
               title={project.title}
               links={project.links}
@@ -125,7 +135,18 @@ const Projects: React.FC = () => {
           ))}
         </>
       ) : (
-        <>Placeholder</>
+        <>
+          {projects.map((project, index) => (
+            <ProjectTemplate
+              description={project.description}
+              key={project.title}
+              imageInformations={project.imageInformations}
+              title={project.title}
+              links={project.links}
+              invert={index === 1}
+            />
+          ))}
+        </>
       )}
     </>
   );
