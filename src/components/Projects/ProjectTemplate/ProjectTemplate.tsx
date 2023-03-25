@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import SvgRepo from "../../Graphics/SvgRepo";
 import type { Project } from "../project";
 import styles from "./ProjectTemplate.module.css";
@@ -9,6 +10,12 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
   links,
   invert = false,
 }) => {
+  const interceptor = useCallback((e: React.MouseEvent) => {
+    if (links.repoLink.trim().length < 1) {
+      e.preventDefault();
+    }
+  }, []);
+
   return (
     <section className={`${styles.wrapper} ${invert ? styles.invert : null}`}>
       <div className={styles.imgWrapper}>
@@ -22,7 +29,13 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
             <span>Live</span>
             <SvgRepo type="Link" size={{ width: "2rem", height: "2rem" }} />
           </a>
-          <a href={links.repoLink} className={styles.repoLink}>
+          <a
+            href={links.repoLink}
+            className={`${styles.repoLink} ${
+              links.repoLink.trim().length < 1 ? styles.notAvailable : null
+            }`}
+            onClick={interceptor}
+          >
             <span>Repo</span>
             <SvgRepo type="Github" size={{ width: "2rem", height: "2rem" }} />
           </a>

@@ -115,6 +115,11 @@
   color: #6e5494;
 }
 
+.notAvailable {
+  filter: brightness(0.6);
+  cursor: not-allowed;
+}
+
 @media only screen and (max-width: 1120px) {
   .imgWrapper {
     margin: 0 2%;
