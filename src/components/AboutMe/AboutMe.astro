@@ -1,0 +1,138 @@
+---
+import CSS3LogoSrc from "./logos/CSS3Logo.svg";
+import EslintLogoSrc from "./logos/EslintLogo.png";
+import ExpressLogoSrc from "./logos/ExpressLogo.png";
+import GitLogoSrc from "./logos/GitLogo.png";
+import HTML5LogoSrc from "./logos/HTML5Logo.png";
+import JavascriptLogoSrc from "./logos/JavascriptLogo.png";
+import JestLogoSrc from "./logos/JestLogo.png";
+import JWTLogoSrc from "./logos/JWTLogo.svg";
+import NodeJsLogoSrc from "./logos/NodeJsLogo.svg";
+import SQLLogoSrc from "./logos/SQLLogo.png";
+import TailwindLogo from "./logos/TailwindLogo.svg";
+import TypeORMLogo from "./logos/TypeORMLogo.svg";
+import TypescriptLogoSrc from "./logos/TypeScriptLogo.png";
+import ReactIconSrc from "./logos/ReactLogo.png";
+---
+
+<style>
+  .me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: justify;
+    font-size: 150%;
+
+    width: 100%;
+
+    padding: 2rem;
+  }
+
+  .header {
+    font-size: 150%;
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content {
+    font-size: 80%;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .pckRef {
+    color: #ed2823;
+  }
+
+  .dkmsRef {
+    color: #e2011b;
+  }
+
+  .bookRef {
+    color: var(--neonBlue);
+  }
+
+  .technologiesKnow {
+    width: 50%;
+    display: grid;
+    grid-auto-rows: 1fr;
+
+    justify-items: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .technologiesKnow > * {
+    height: 64px;
+    width: 64px;
+  }
+
+  .sqlCell {
+    grid-column: 3/5;
+    width: 128px;
+  }
+</style>
+
+<section class="me">
+  <h1 class="header neonGreen">A little about me</h1>
+  <div class="contentWrapper">
+    <p class="content">
+      I am a highly motivated, self-taught programmer with a passion for
+      designing visually appealing and high-performance applications. With
+      extensive observations of the rapidly-evolving landscape of the XXI
+      century Internet, I possess a deep understanding of how technology grows
+      and matures.
+    </p>
+    <p class="content">
+      I am committed to making a positive impact on society through my volunteer
+      work with organizations such as
+      <a class="pckRef" href="https://pck.pl/" referrerpolicy="no-referrer">
+        Polski Czerwony Krzyż
+      </a>
+      and
+      <a
+        class="dkmsRef"
+        href="https://www.dkms.pl/"
+        referrerpolicy="no-referrer">DKMS</a
+      >.
+    </p>
+    <p class="content">
+      Additionally, I have authored
+      <a
+        class="bookRef"
+        href="https://helion.pl/ksiazki/administrowanie-sieciowymi-systemami-operacyjnymi-windows-serwer-i-linux-serwer-bartosz-mrosek-krzysztof-chrobok,e_2y4x.htm#format/e"
+        referrerpolicy="no-referrer"
+      >
+        a book</a
+      >
+      focused on helping younger generations achieve better scores on technical exams,
+      specifically in Layers 2, 3 and 4 of the OSI model.
+    </p>
+    <p class="content">
+      I am confident that my software development skills will enable me to
+      achieve my goal of creating impactful software.
+    </p>
+  </div>
+</section>
+<section class="skills">
+  <h1>Tools I know:</h1>
+  <div class="technologiesKnow">
+    <img src={HTML5LogoSrc} />
+    <img src={CSS3LogoSrc} />
+    <img src={JavascriptLogoSrc} />
+    <img src={TypescriptLogoSrc} />
+    <img src={GitLogoSrc} />
+    <img src={EslintLogoSrc} />
+    <img src={JestLogoSrc} />
+    <img src={ReactIconSrc} />
+    <img src={JWTLogoSrc} />
+    <img src={TailwindLogo} />
+    <img src={SQLLogoSrc} class="sqlCell" />
+  </div>
+  <h1>What I am learning</h1>
+  <div class="technologiesLearn"></div>
+</section>

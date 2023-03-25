@@ -3,6 +3,7 @@ import Experience from "../components/Experience/Experience.astro";
 import Home from "../components/Home/Home.astro";
 import NavigationMobile from "../components/Navigation/Navigation.jsx";
 import Projects from "../components/Projects/Projects.jsx";
+import AboutMe from "../components/AboutMe/AboutMe.astro";
 import "../global.css";
 ---
 
@@ -69,13 +70,14 @@ import "../global.css";
         }
       });
     },
-    { rootMargin: "0px", threshold: 0.4 }
+    { rootMargin: "32px", threshold: 0.4 }
   );
 
   const allSections = [
     document.getElementById("Home"),
     document.getElementById("Experience"),
     document.getElementById("Projects"),
+    document.getElementById("AboutMe"),
   ];
 
   window.addEventListener("load", () => {
@@ -95,9 +97,9 @@ import "../global.css";
   <body>
     <NavigationMobile client:only="react" />
     <main>
-      <div class="homeWrapper">
+      <section class="homeWrapper">
         <Home />
-      </div>
+      </section>
       <Experience />
       <section id="Projects" class="projectsWrapper">
         <div class="projectsTopGroup htmlDecorators">
@@ -109,6 +111,19 @@ import "../global.css";
         <div class="projectsBottomGroup htmlDecorators">
           <pre>
   &lt;/section&gt;
+          </pre>
+        </div>
+      </section>
+      <section class="aboutMeWrapper" id="AboutMe">
+        <div class="htmlDecorators">
+          <pre>
+  &lt;section id="AboutMe"&gt;
+          </pre>
+        </div>
+        <AboutMe />
+        <div class="htmlDecorators">
+          <pre>
+   &lt;/section&gt;
           </pre>
         </div>
       </section>

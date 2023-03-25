@@ -44,7 +44,11 @@ const NavigationMobile: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="neonDarkBlue" onClick={closeNavbar}>
+                <a
+                  href="#AboutMe"
+                  className="neonDarkBlue"
+                  onClick={closeNavbar}
+                >
                   About me
                 </a>
               </li>
@@ -71,7 +75,7 @@ const NavigationMobile: React.FC = () => {
           <NavigationLink href="#Projects" className="neonBlue">
             Projects
           </NavigationLink>
-          <NavigationLink href="#" className="neonDarkBlue">
+          <NavigationLink href="#AboutMe" className="neonDarkBlue">
             About me
           </NavigationLink>
           <NavigationLink href="#" className="neonPurple">
