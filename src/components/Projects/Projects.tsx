@@ -105,7 +105,7 @@ const Projects: React.FC = () => {
             }
           });
         },
-        { rootMargin: "0px", threshold: 0.7 }
+        { rootMargin: "0px", threshold: [0.25, 0.75] }
       );
       if (
         imageRefs.every((imageRef) => imageRef.current !== null) &&

@@ -16,7 +16,7 @@ import ReactIconSrc from "./logos/ReactLogo.png";
 ---
 
 <style>
-  .me {
+  .littleDescripton {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,6 @@ import ReactIconSrc from "./logos/ReactLogo.png";
   }
 
   .technologiesKnow {
-    width: 50%;
     display: grid;
     grid-auto-rows: 1fr;
 
@@ -66,7 +65,8 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     gap: 0.5rem;
   }
 
-  .technologiesKnow > * {
+  .technologiesKnow > *,
+  .technologiesKnow > * > * {
     height: 64px;
     width: 64px;
   }
@@ -75,9 +75,38 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     grid-column: 3/5;
     width: 128px;
   }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 0.75rem;
+  }
+
+  .skillsHeader {
+    font-size: 175%;
+  }
+
+  .technologiesLearn {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1.5rem;
+  }
+
+  .technologiesLearn > *,
+  .technologiesLearn > * > * {
+    width: 64px;
+    height: 64px;
+  }
 </style>
 
-<section class="me">
+<section class="littleDescripton">
   <h1 class="header neonGreen">A little about me</h1>
   <div class="contentWrapper">
     <p class="content">
@@ -119,20 +148,74 @@ import ReactIconSrc from "./logos/ReactLogo.png";
   </div>
 </section>
 <section class="skills">
-  <h1>Tools I know:</h1>
+  <h1 class="neonBlue skillsHeader">Tools I know:</h1>
   <div class="technologiesKnow">
-    <img src={HTML5LogoSrc} />
-    <img src={CSS3LogoSrc} />
-    <img src={JavascriptLogoSrc} />
-    <img src={TypescriptLogoSrc} />
-    <img src={GitLogoSrc} />
-    <img src={EslintLogoSrc} />
-    <img src={JestLogoSrc} />
-    <img src={ReactIconSrc} />
-    <img src={JWTLogoSrc} />
-    <img src={TailwindLogo} />
-    <img src={SQLLogoSrc} class="sqlCell" />
+    <a
+      referrerpolicy="no-referrer"
+      target="_blank"
+      href="https://html.spec.whatwg.org/multipage/"
+    >
+      <img src={HTML5LogoSrc} alt="A html 5 logo" />
+    </a>
+    <a
+      referrerpolicy="no-referrer"
+      target="_blank"
+      href="https://www.w3.org/Style/CSS/"
+    >
+      <img src={CSS3LogoSrc} alt="A css 3 logo" />
+    </a>
+    <a
+      referrerpolicy="no-referrer"
+      target="_blank"
+      href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/"
+    >
+      <img src={JavascriptLogoSrc} alt="Javascript logo" />
+    </a>
+    <a
+      referrerpolicy="no-referrer"
+      target="_blank"
+      href="https://www.typescriptlang.org/"
+    >
+      <img src={TypescriptLogoSrc} alt="Typescript logo" />
+    </a>
+    <a referrerpolicy="no-referrer" target="_blank" href="https://git-scm.com/">
+      <img src={GitLogoSrc} alt="Git logo" />
+    </a>
+    <a referrerpolicy="no-referrer" target="_blank" href="https://eslint.org/">
+      <img src={EslintLogoSrc} alt="Eslint logo" />
+    </a>
+    <a referrerpolicy="no-referrer" target="_blank" href="https://jestjs.io/">
+      <img src={JestLogoSrc} alt="Jest logo" />
+    </a>
+    <a referrerpolicy="no-referrer" target="_blank" href="https://react.dev/">
+      <img src={ReactIconSrc} alt="React logo" />
+    </a>
+    <a referrerpolicy="no-referrer" target="_blank" href="https://jwt.io/">
+      <img src={JWTLogoSrc} alt="JWT logo" />
+    </a>
+    <a
+      referrerpolicy="no-referrer"
+      target="_blank"
+      href="https://tailwindcss.com/"
+    >
+      <img src={TailwindLogo} alt="Talwindcss logo" />
+    </a>
+    <img src={SQLLogoSrc} class="sqlCell" alt="SQL logo" />
   </div>
-  <h1>What I am learning</h1>
-  <div class="technologiesLearn"></div>
+  <h1 class="neonYellow skillsHeader">What I am learning</h1>
+  <div class="technologiesLearn">
+    <a target="_blank" referrerpolicy="no-referrer" href="https://nodejs.org/">
+      <img src={NodeJsLogoSrc} alt="Nodejs logo" />
+    </a>
+    <a
+      target="_blank"
+      referrerpolicy="no-referrer"
+      href="https://expressjs.com/"
+    >
+      <img src={ExpressLogoSrc} alt="Express logo" />
+    </a>
+    <a target="_blank" referrerpolicy="no-referrer" href="https://typeorm.io/">
+      <img src={TypeORMLogo} alt="TypeORM logo" />
+    </a>
+  </div>
 </section>
