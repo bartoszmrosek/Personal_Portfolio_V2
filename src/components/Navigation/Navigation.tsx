@@ -61,26 +61,25 @@ const NavigationMobile: React.FC = () => {
           </section>
         </nav>
       ) : (
-        <nav
-          className={`${styles.navbar} ${styles["navbar-desktop"]}`}
-          id="desktopNavLinks"
-        >
-          <a>I</a>
-          <NavigationLink href="#Home" className="neonYellow neonBorder">
-            Home
-          </NavigationLink>
-          <NavigationLink href="#Experience" className="neonRed">
-            Experience
-          </NavigationLink>
-          <NavigationLink href="#Projects" className="neonBlue">
-            Projects
-          </NavigationLink>
-          <NavigationLink href="#AboutMe" className="neonDarkBlue">
-            About me
-          </NavigationLink>
-          <NavigationLink href="#Contact" className="neonPurple">
-            Contact
-          </NavigationLink>
+        <nav className={`${styles.navbar}`}>
+          <div className={`${styles["navbar-desktop"]}`} id="desktopNavLinks">
+            <a>I</a>
+            <NavigationLink href="#Home" className="neonYellow neonBorder">
+              Home
+            </NavigationLink>
+            <NavigationLink href="#Experience" className="neonRed">
+              Experience
+            </NavigationLink>
+            <NavigationLink href="#Projects" className="neonBlue">
+              Projects
+            </NavigationLink>
+            <NavigationLink href="#AboutMe" className="neonDarkBlue">
+              About me
+            </NavigationLink>
+            <NavigationLink href="#Contact" className="neonPurple">
+              Contact
+            </NavigationLink>
+          </div>
         </nav>
       )}
     </>
