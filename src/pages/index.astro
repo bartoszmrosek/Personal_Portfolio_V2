@@ -60,6 +60,34 @@ import Contact from "../components/Contact/Contact.astro";
   .contactWrapper {
     width: 100%;
   }
+
+  footer {
+    margin-top: 3rem;
+
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #131314;
+  }
+
+  .footerContent {
+    font-size: 125%;
+    text-align: center;
+  }
+
+  .specialRed {
+    color: #e81224;
+  }
+
+  .neonSpecialRed {
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.45em #e81224;
+  }
+
+  .copyright {
+    color: wheat;
+  }
   @media only screen and (max-width: 767px) {
     .projectsWrapper {
       padding-top: 6rem;
@@ -173,6 +201,14 @@ import Contact from "../components/Contact/Contact.astro";
         </div>
       </section>
     </main>
-    <footer>Made with love</footer>
+    <footer>
+      <p class="footerContent">
+        <span class="specialRed">Made with</span>
+        <span class="neonSpecialRed">❤️</span>
+        <span class="copyright">
+          <wbr />• &copy; Copyright 2023 Bartosz Mrosek. All Rights Reserved</span
+        >
+      </p>
+    </footer>
   </body>
 </html>
