@@ -116,8 +116,10 @@ const Projects: React.FC = () => {
         ownRef.current = false;
       }
     }
+    return () => {
+      ownRef.current = true;
+    };
   }, [imageRefs]);
-
   return (
     <>
       {isMobile ? (
