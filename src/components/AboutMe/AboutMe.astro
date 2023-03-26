@@ -16,7 +16,7 @@ import ReactIconSrc from "./logos/ReactLogo.png";
 ---
 
 <style>
-  .littleDescripton {
+  .meContent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +24,7 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     text-align: justify;
     font-size: 150%;
 
-    width: 100%;
+    width: 50%;
 
     padding: 2rem;
   }
@@ -104,118 +104,157 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     width: 64px;
     height: 64px;
   }
+
+  .aboutFlexbox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .aboutFlexbox {
+      flex-direction: column;
+    }
+
+    .meContent {
+      width: 100%;
+    }
+
+    .skills {
+      width: 100%;
+    }
+  }
 </style>
 
-<section class="littleDescripton">
-  <h1 class="header neonGreen">A little about me</h1>
-  <div class="contentWrapper">
-    <p class="content">
-      I am a highly motivated, self-taught programmer with a passion for
-      designing visually appealing and high-performance applications. With
-      extensive observations of the rapidly-evolving landscape of the XXI
-      century Internet, I possess a deep understanding of how technology grows
-      and matures.
-    </p>
-    <p class="content">
-      I am committed to making a positive impact on society through my volunteer
-      work with organizations such as
-      <a class="pckRef" href="https://pck.pl/" referrerpolicy="no-referrer">
-        Polski Czerwony Krzyż
-      </a>
-      and
+<div class="aboutFlexbox">
+  <section class="meContent">
+    <h1 class="header neonGreen">A little about me</h1>
+    <div class="contentWrapper">
+      <p class="content">
+        I am a highly motivated, self-taught programmer with a passion for
+        designing visually appealing and high-performance applications. With
+        extensive observations of the rapidly-evolving landscape of the XXI
+        century Internet, I possess a deep understanding of how technology grows
+        and matures.
+      </p>
+      <p class="content">
+        I am committed to making a positive impact on society through my
+        volunteer work with organizations such as
+        <a class="pckRef" href="https://pck.pl/" referrerpolicy="no-referrer">
+          Polski Czerwony Krzyż
+        </a>
+        and
+        <a
+          class="dkmsRef"
+          href="https://www.dkms.pl/"
+          referrerpolicy="no-referrer">DKMS</a
+        >.
+      </p>
+      <p class="content">
+        Additionally, I have authored
+        <a
+          class="bookRef"
+          href="https://helion.pl/ksiazki/administrowanie-sieciowymi-systemami-operacyjnymi-windows-serwer-i-linux-serwer-bartosz-mrosek-krzysztof-chrobok,e_2y4x.htm#format/e"
+          referrerpolicy="no-referrer"
+        >
+          a book</a
+        >
+        focused on helping younger generations achieve better scores on technical
+        exams, specifically in Layers 2, 3 and 4 of the OSI model.
+      </p>
+      <p class="content">
+        I am confident that my software development skills will enable me to
+        achieve my goal of creating impactful software.
+      </p>
+    </div>
+  </section>
+  <section class="skills">
+    <h1 class="neonBlue skillsHeader">Tools I know</h1>
+    <div class="technologiesKnow">
       <a
-        class="dkmsRef"
-        href="https://www.dkms.pl/"
-        referrerpolicy="no-referrer">DKMS</a
-      >.
-    </p>
-    <p class="content">
-      Additionally, I have authored
-      <a
-        class="bookRef"
-        href="https://helion.pl/ksiazki/administrowanie-sieciowymi-systemami-operacyjnymi-windows-serwer-i-linux-serwer-bartosz-mrosek-krzysztof-chrobok,e_2y4x.htm#format/e"
         referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://html.spec.whatwg.org/multipage/"
       >
-        a book</a
+        <img src={HTML5LogoSrc} alt="A html 5 logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://www.w3.org/Style/CSS/"
       >
-      focused on helping younger generations achieve better scores on technical exams,
-      specifically in Layers 2, 3 and 4 of the OSI model.
-    </p>
-    <p class="content">
-      I am confident that my software development skills will enable me to
-      achieve my goal of creating impactful software.
-    </p>
-  </div>
-</section>
-<section class="skills">
-  <h1 class="neonBlue skillsHeader">Tools I know:</h1>
-  <div class="technologiesKnow">
-    <a
-      referrerpolicy="no-referrer"
-      target="_blank"
-      href="https://html.spec.whatwg.org/multipage/"
-    >
-      <img src={HTML5LogoSrc} alt="A html 5 logo" />
-    </a>
-    <a
-      referrerpolicy="no-referrer"
-      target="_blank"
-      href="https://www.w3.org/Style/CSS/"
-    >
-      <img src={CSS3LogoSrc} alt="A css 3 logo" />
-    </a>
-    <a
-      referrerpolicy="no-referrer"
-      target="_blank"
-      href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/"
-    >
-      <img src={JavascriptLogoSrc} alt="Javascript logo" />
-    </a>
-    <a
-      referrerpolicy="no-referrer"
-      target="_blank"
-      href="https://www.typescriptlang.org/"
-    >
-      <img src={TypescriptLogoSrc} alt="Typescript logo" />
-    </a>
-    <a referrerpolicy="no-referrer" target="_blank" href="https://git-scm.com/">
-      <img src={GitLogoSrc} alt="Git logo" />
-    </a>
-    <a referrerpolicy="no-referrer" target="_blank" href="https://eslint.org/">
-      <img src={EslintLogoSrc} alt="Eslint logo" />
-    </a>
-    <a referrerpolicy="no-referrer" target="_blank" href="https://jestjs.io/">
-      <img src={JestLogoSrc} alt="Jest logo" />
-    </a>
-    <a referrerpolicy="no-referrer" target="_blank" href="https://react.dev/">
-      <img src={ReactIconSrc} alt="React logo" />
-    </a>
-    <a referrerpolicy="no-referrer" target="_blank" href="https://jwt.io/">
-      <img src={JWTLogoSrc} alt="JWT logo" />
-    </a>
-    <a
-      referrerpolicy="no-referrer"
-      target="_blank"
-      href="https://tailwindcss.com/"
-    >
-      <img src={TailwindLogo} alt="Talwindcss logo" />
-    </a>
-    <img src={SQLLogoSrc} class="sqlCell" alt="SQL logo" />
-  </div>
-  <h1 class="neonYellow skillsHeader">What I am learning</h1>
-  <div class="technologiesLearn">
-    <a target="_blank" referrerpolicy="no-referrer" href="https://nodejs.org/">
-      <img src={NodeJsLogoSrc} alt="Nodejs logo" />
-    </a>
-    <a
-      target="_blank"
-      referrerpolicy="no-referrer"
-      href="https://expressjs.com/"
-    >
-      <img src={ExpressLogoSrc} alt="Express logo" />
-    </a>
-    <a target="_blank" referrerpolicy="no-referrer" href="https://typeorm.io/">
-      <img src={TypeORMLogo} alt="TypeORM logo" />
-    </a>
-  </div>
-</section>
+        <img src={CSS3LogoSrc} alt="A css 3 logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/"
+      >
+        <img src={JavascriptLogoSrc} alt="Javascript logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://www.typescriptlang.org/"
+      >
+        <img src={TypescriptLogoSrc} alt="Typescript logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://git-scm.com/"
+      >
+        <img src={GitLogoSrc} alt="Git logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://eslint.org/"
+      >
+        <img src={EslintLogoSrc} alt="Eslint logo" />
+      </a>
+      <a referrerpolicy="no-referrer" target="_blank" href="https://jestjs.io/">
+        <img src={JestLogoSrc} alt="Jest logo" />
+      </a>
+      <a referrerpolicy="no-referrer" target="_blank" href="https://react.dev/">
+        <img src={ReactIconSrc} alt="React logo" />
+      </a>
+      <a referrerpolicy="no-referrer" target="_blank" href="https://jwt.io/">
+        <img src={JWTLogoSrc} alt="JWT logo" />
+      </a>
+      <a
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://tailwindcss.com/"
+      >
+        <img src={TailwindLogo} alt="Talwindcss logo" />
+      </a>
+      <img src={SQLLogoSrc} class="sqlCell" alt="SQL logo" />
+    </div>
+    <h1 class="neonYellow skillsHeader">What I am learning</h1>
+    <div class="technologiesLearn">
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://nodejs.org/"
+      >
+        <img src={NodeJsLogoSrc} alt="Nodejs logo" />
+      </a>
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://expressjs.com/"
+      >
+        <img src={ExpressLogoSrc} alt="Express logo" />
+      </a>
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://typeorm.io/"
+      >
+        <img src={TypeORMLogo} alt="TypeORM logo" />
+      </a>
+    </div>
+  </section>
+</div>
