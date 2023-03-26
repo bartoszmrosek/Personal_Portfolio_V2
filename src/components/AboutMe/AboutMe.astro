@@ -1,6 +1,6 @@
 ---
 import CSS3LogoSrc from "./logos/CSS3Logo.svg";
-import EslintLogoSrc from "./logos/EslintLogo.png";
+import EslintLogoSrc from "./logos/ESLintLogo.png";
 import ExpressLogoSrc from "./logos/ExpressLogo.png";
 import GitLogoSrc from "./logos/GitLogo.png";
 import HTML5LogoSrc from "./logos/HTML5Logo.png";
@@ -20,6 +20,7 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 
     text-align: justify;
     font-size: 150%;
@@ -112,6 +113,16 @@ import ReactIconSrc from "./logos/ReactLogo.png";
     flex-direction: row;
   }
 
+  .resumeRef {
+    padding: 1rem 1.25rem;
+
+    border-radius: 3rem;
+  }
+
+  a:hover {
+    filter: brightness(0.65);
+  }
+
   @media only screen and (max-width: 767px) {
     .aboutFlexbox {
       flex-direction: column;
@@ -142,8 +153,8 @@ import ReactIconSrc from "./logos/ReactLogo.png";
         I am committed to making a positive impact on society through my
         volunteer work with organizations such as
         <a class="pckRef" href="https://pck.pl/" referrerpolicy="no-referrer">
-          Polski Czerwony Krzyż
-        </a>
+          Polski Czerwony Krzyż</a
+        >
         and
         <a
           class="dkmsRef"
@@ -168,6 +179,11 @@ import ReactIconSrc from "./logos/ReactLogo.png";
         achieve my goal of creating impactful software.
       </p>
     </div>
+    <a
+      aria-label="Open P D F file"
+      href="/Bartosz_Resume.pdf"
+      class="resumeRef neonBorder neonGreen">Resume</a
+    >
   </section>
   <section class="skills">
     <h1 class="neonBlue skillsHeader">Tools I know</h1>

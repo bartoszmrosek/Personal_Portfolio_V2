@@ -5,6 +5,7 @@ import NavigationMobile from "../components/Navigation/Navigation.jsx";
 import Projects from "../components/Projects/Projects.jsx";
 import AboutMe from "../components/AboutMe/AboutMe.astro";
 import "../global.css";
+import Contact from "../components/Contact/Contact.astro";
 ---
 
 <style>
@@ -35,6 +36,10 @@ import "../global.css";
   }
 
   .aboutMeWrapper {
+    width: 100%;
+  }
+
+  .contactWrapper {
     width: 100%;
   }
   @media only screen and (max-width: 767px) {
@@ -127,10 +132,24 @@ import "../global.css";
         <AboutMe />
         <div class="htmlDecorators">
           <pre>
-   &lt;/section&gt;
+  &lt;/section&gt;
+          </pre>
+        </div>
+      </section>
+      <section class="contactWrapper" id="Contact">
+        <div class="htmlDecorators">
+          <pre>
+  &lt;section id="AboutMe"&gt;
+          </pre>
+        </div>
+        <Contact />
+        <div class="htmlDecorators">
+          <pre>
+  &lt;/section&gt;
           </pre>
         </div>
       </section>
     </main>
+    <footer>Made with love</footer>
   </body>
 </html>
