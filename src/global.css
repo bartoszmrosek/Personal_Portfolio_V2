@@ -38,6 +38,10 @@ main {
   scroll-behavior: smooth;
 }
 
+main {
+  height: fit-content;
+}
+
 body {
   font-family: "LeagueSpartan";
   background-color: #1b1c1e;

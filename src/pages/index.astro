@@ -13,7 +13,7 @@ import Contact from "../components/Contact/Contact.astro";
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
   .projectsWrapper {
     min-height: 100%;
@@ -37,6 +37,24 @@ import Contact from "../components/Contact/Contact.astro";
 
   .aboutMeWrapper {
     width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+  }
+
+  .aboutMeTopGroup {
+    top: 6rem;
+    left: 0;
+  }
+
+  .aboutMeBottomGroup {
+    bottom: 0;
+    left: 0;
   }
 
   .contactWrapper {
@@ -47,6 +65,10 @@ import Contact from "../components/Contact/Contact.astro";
       padding-top: 6rem;
     }
     .projectsTopGroup {
+      top: 3rem;
+    }
+
+    .aboutMeTopGroup {
       top: 3rem;
     }
   }
@@ -79,7 +101,7 @@ import Contact from "../components/Contact/Contact.astro";
         }
       });
     },
-    { rootMargin: "32px", threshold: 0.4 }
+    { rootMargin: "32px", threshold: [0.4] }
   );
 
   const allSections = [
@@ -87,6 +109,7 @@ import Contact from "../components/Contact/Contact.astro";
     document.getElementById("Experience"),
     document.getElementById("Projects"),
     document.getElementById("AboutMe"),
+    document.getElementById("Contact"),
   ];
 
   window.addEventListener("load", () => {
@@ -124,13 +147,13 @@ import Contact from "../components/Contact/Contact.astro";
         </div>
       </section>
       <section class="aboutMeWrapper" id="AboutMe">
-        <div class="htmlDecorators">
+        <div class="htmlDecorators aboutMeTopGroup">
           <pre>
   &lt;section id="AboutMe"&gt;
           </pre>
         </div>
         <AboutMe />
-        <div class="htmlDecorators">
+        <div class="htmlDecorators aboutMeBottomGroup">
           <pre>
   &lt;/section&gt;
           </pre>
@@ -139,7 +162,7 @@ import Contact from "../components/Contact/Contact.astro";
       <section class="contactWrapper" id="Contact">
         <div class="htmlDecorators">
           <pre>
-  &lt;section id="AboutMe"&gt;
+  &lt;section id="Contact"&gt;
           </pre>
         </div>
         <Contact />

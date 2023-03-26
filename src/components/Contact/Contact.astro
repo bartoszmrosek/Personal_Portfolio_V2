@@ -1,30 +1,235 @@
 ---
+import SvgRepo from "../Graphics/SvgRepo";
+import LinkedInLogoSrc from "./LinkedInLogo.png";
 ---
 
-<style></style>
+<style>
+  .informationsWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+
+    padding: 2rem;
+
+    width: 100%;
+
+    text-align: center;
+
+    --neonBorderColor: wheat;
+  }
+
+  .informationsWrapper > div {
+    background-color: rgb(18, 9, 14);
+    padding: 2rem;
+    border-radius: 2rem;
+  }
+
+  .informationsHeader {
+    font-size: 150%;
+    margin-bottom: 1rem;
+  }
+
+  .linkList {
+    list-style-type: none;
+
+    height: 90%;
+
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 140%;
+
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .linkLogo {
+    vertical-align: center;
+    height: 1.12em;
+  }
+
+  .linkedinLink {
+    color: rgb(40, 103, 178);
+  }
+
+  .githubLink {
+    color: #6e5494;
+  }
+
+  .emailLink {
+    color: #528b6b;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    filter: brightness(0.65);
+  }
+
+  .formWrapper {
+    width: 60%;
+  }
+
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .formLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .formLabel > span {
+    font-size: 125%;
+    color: rgba(255, 255, 255, 0.61);
+  }
+  .formField {
+    width: 75%;
+    height: 3rem;
+
+    padding: 0.5rem 0.75rem;
+
+    font-family: "Inter";
+    font-size: 110%;
+    font-weight: normal;
+
+    outline: 0;
+    border: 4px solid transparent;
+
+    border-radius: 1rem;
+  }
+
+  .formTextArea {
+    resize: none;
+    height: fit-content;
+  }
+
+  .formField:focus-within {
+    border-color: var(--neonPurple);
+  }
+
+  .formSubmitBtn {
+    width: 40%;
+
+    padding: 1rem 2rem;
+
+    border-radius: 1rem;
+
+    font-size: 125%;
+    color: rgb(18, 9, 14);
+    border: 0;
+
+    background-color: wheat;
+
+    cursor: pointer;
+  }
+
+  .formSubmitBtn:hover {
+    filter: brightness(0.61);
+  }
+
+  @media only screen and (max-width: 1140px) {
+    .informationsWrapper {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .formWrapper {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const labels = document.querySelectorAll("label.formLabel");
+
+  // Disabling case that when label is clicked the input would be focused
+  labels.forEach((label) => {
+    label.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  });
+</script>
 
 <section class="informationsWrapper">
-  <div class="information">
-    <h1>Ways to contact and follow me:</h1>
-    <ul>
-      <li>LinkedIn</li>
-      <li>Github</li>
-      <li>Email</li>
+  <div class="informations neonBorder">
+    <h1 class="neonWhite informationsHeader">Get in touch with me here:</h1>
+    <ul class="linkList">
+      <li>
+        <a
+          target="_blank"
+          referrerpolicy="no-referrer"
+          href="https://www.linkedin.com/in/bartosz-mrosek-b4577522b/"
+          class="linkedinLink"
+        >
+          <img src={LinkedInLogoSrc} alt="LinkedIn logo" class="linkLogo" />
+          <span>LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="githubLink"
+          href="https://github.com/bartoszmrosek"
+        >
+          <SvgRepo type="Github" size={{ width: "1.13em", height: "1.13em" }} />
+          <span>Github</span>
+        </a>
+      </li>
+      <li>
+        <a class="emailLink" href="mailto:bartoszmrosek@gmail.com">
+          <SvgRepo type="Email" size={{ width: "1.13em", height: "1.13em" }} />
+          <span>bartoszmrosek@gmail.com</span>
+        </a>
+      </li>
     </ul>
   </div>
-  <form class="contactForm">
-    <label>
-      Name:
-      <input name="Name" />
-    </label>
-    <label>
-      E-mail
-      <input name="Email" />
-    </label>
-    <label>
-      Message
-      <input name="Message" />
-    </label>
-    <button type="submit">Submit</button>
-  </form>
+  <div class="formWrapper neonBorder">
+    <h1 class="neonWhite informationsHeader">
+      Or send me message directly here:
+    </h1>
+    <form class="contactForm">
+      <label class="formLabel">
+        <span>Name</span>
+        <input
+          name="Name"
+          class="formField"
+          type="text"
+          required
+          placeholder="Name"
+        />
+      </label>
+      <label class="formLabel">
+        <span>E-mail</span>
+        <input
+          name="Email"
+          class="formField"
+          type="email"
+          required
+          placeholder="E-mail"
+        />
+      </label>
+      <label class="formLabel">
+        <span>Message</span>
+        <textarea
+          name="Message"
+          class="formField formTextArea"
+          required
+          placeholder="Message"
+          rows="5"
+          cols="35"></textarea>
+      </label>
+      <div class="btnWrapper">
+        <button type="submit" class="formSubmitBtn">Submit</button>
+      </div>
+    </form>
+  </div>
 </section>
