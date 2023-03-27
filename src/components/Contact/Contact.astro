@@ -154,6 +154,9 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
 </style>
 
 <script>
+  import emailjs from "@emailjs/browser";
+
+  import type { FormEvent } from "react";
   const labels = document.querySelectorAll("label.formLabel");
 
   // Disabling case that when label is clicked the input would be focused
@@ -161,6 +164,52 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
     label.addEventListener("click", (e) => {
       e.preventDefault();
     });
+  });
+
+  window.addEventListener("load", () => {
+    const form: HTMLFormElement | null =
+      document.querySelector("form.contactForm");
+
+    if (form) {
+      const button: HTMLButtonElement | null = document.querySelector(
+        "button.formSubmitBtn"
+      );
+      document.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (button) button.innerText = "Sending...";
+        emailjs
+          .sendForm(
+            "service_y35rh3f",
+            "template_1gvg68s",
+            form,
+            "FrO6xYYPxPKVT5QUJ"
+          )
+          .then(() => {
+            if (button) {
+              button.disabled = true;
+              button.classList.add("success");
+              button.textContent = "Sent!";
+              setInterval(() => {
+                button.disabled = false;
+                button.classList.remove("success");
+                button.textContent = "Submit";
+              }, 2000);
+            }
+          })
+          .catch(() => {
+            if (button) {
+              button.disabled = true;
+              button.classList.add("error");
+              button.textContent = "Please retry";
+              setInterval(() => {
+                button.disabled = false;
+                button.textContent = "Submit";
+                button.classList.remove("error");
+              }, 2000);
+            }
+          });
+      });
+    }
   });
 </script>
 
@@ -206,7 +255,7 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
       <label class="formLabel">
         <span>Name</span>
         <input
-          name="Name"
+          name="name"
           class="formField"
           type="text"
           required
@@ -216,7 +265,7 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
       <label class="formLabel">
         <span>E-mail</span>
         <input
-          name="Email"
+          name="email"
           class="formField"
           type="email"
           required
@@ -226,7 +275,7 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
       <label class="formLabel">
         <span>Message</span>
         <textarea
-          name="Message"
+          name="message"
           class="formField formTextArea"
           required
           placeholder="Message"

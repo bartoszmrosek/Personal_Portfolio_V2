@@ -125,3 +125,11 @@ body {
 .movingInAnimation {
   opacity: 1;
 }
+
+.success {
+  background-color: var(--neonGreen) !important;
+}
+
+.error {
+  background-color: #ed2823 !important;
+}
