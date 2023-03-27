@@ -107,6 +107,10 @@ input.hamburger:checked ~ .drawer-list li:nth-child(5) {
   transition: transform 1s 0.4s cubic-bezier(0.29, 1.4, 0.44, 0.96);
 }
 
+input.hamburger:checked ~ .drawer-list li:nth-child(6) {
+  transition: transform 1s 0.48s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+
 input.hamburger:checked ~ .drawer-list li a {
   padding-right: 15px;
 }
