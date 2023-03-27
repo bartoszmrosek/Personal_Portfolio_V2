@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import { useMobile } from "../../hooks/useMobile";
 import styles from "./Navigation.module.css";
 import NavigationLink from "./NavigationLink/NavigationLink";
+import LogoSrc from "/optimizedLogo.svg";
+import SvgRepo from "../Graphics/SvgRepo";
 
 const NavigationMobile: React.FC = () => {
   const hamburgerRef = useRef<HTMLInputElement>(null);
@@ -28,6 +30,14 @@ const NavigationMobile: React.FC = () => {
           </label>
           <section className={`${styles["drawer-list"]}`}>
             <ul>
+              <li>
+                <a href="https://bmrosek-portfolio.netlify.app/">
+                  <SvgRepo
+                    type="Logo"
+                    size={{ width: "128px", height: "128px" }}
+                  />
+                </a>
+              </li>
               <li>
                 <a href="#Home" className="neonYellow" onClick={closeNavbar}>
                   Home
@@ -63,7 +73,12 @@ const NavigationMobile: React.FC = () => {
       ) : (
         <nav className={`${styles.navbar}`}>
           <div className={`${styles["navbar-desktop"]}`} id="desktopNavLinks">
-            <a>I</a>
+            <a
+              className={styles.logoLink}
+              href="https://bmrosek-portfolio.netlify.app/"
+            >
+              <SvgRepo type="Logo" size={{ width: "96px", height: "96px" }} />
+            </a>
             <NavigationLink href="#Home" className="neonYellow neonBorder">
               Home
             </NavigationLink>
