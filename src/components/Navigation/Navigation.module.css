@@ -1,7 +1,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 30;
   width: 100%;
 
   backdrop-filter: blur(4px);
@@ -130,7 +130,7 @@ input.hamburger:checked ~ label > i:after {
 }
 
 label.hamburger {
-  z-index: 9999;
+  z-index: 30;
   position: relative;
   display: block;
   height: 50px;
