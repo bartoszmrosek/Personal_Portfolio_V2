@@ -16,7 +16,14 @@
   }
 
   .backgroundCanva {
-    background-image: url("background-min.png");
+    background-image: -webkit-image-set(
+      url("background-FHD.png") 1x,
+      url("background-min.png") 2x
+    );
+    background-image: image-set(
+      url("background-FHD.png") 1x,
+      url("background-min.png") 2x
+    );
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% center;

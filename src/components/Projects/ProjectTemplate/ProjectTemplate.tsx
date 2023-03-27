@@ -19,7 +19,11 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
   return (
     <section className={`${styles.wrapper} ${invert ? styles.invert : null}`}>
       <div className={styles.imgWrapper}>
-        <img src={imageInformations.dekstopSrc} className={styles.image} />
+        <img
+          src={imageInformations.dekstopSrc}
+          className={styles.image}
+          alt={`${title} main page screenshot`}
+        />
       </div>
       <section className={styles.content}>
         <h1 className={`${styles.header} neonWhite`}>{title}</h1>

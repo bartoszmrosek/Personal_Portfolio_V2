@@ -216,8 +216,6 @@ label.hamburger {
 
   top: 0;
   left: 0;
-
-  backdrop-filter: blur(4px);
 }
 
 @media only screen and (max-width: 840px) {
