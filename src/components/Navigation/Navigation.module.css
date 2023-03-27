@@ -5,6 +5,7 @@
   width: 100%;
 
   backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .drawer-list {
@@ -192,6 +193,7 @@ label.hamburger {
   gap: 5px;
   width: 100%;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-left: 1rem;
 }
 
