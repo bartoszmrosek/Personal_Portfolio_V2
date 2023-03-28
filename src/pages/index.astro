@@ -6,6 +6,7 @@ import Projects from "../components/Projects/Projects.jsx";
 import AboutMe from "../components/AboutMe/AboutMe.astro";
 import "../global.css";
 import Contact from "../components/Contact/Contact.astro";
+import MyLogoSrc from "/optimizedLogo.svg";
 ---
 
 <style>
@@ -95,6 +96,97 @@ import Contact from "../components/Contact/Contact.astro";
   .copyright {
     color: wheat;
   }
+
+  .overlay {
+    z-index: 50;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .logoWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform-origin: left top;
+    width: max-content;
+    height: max-content;
+    animation: logoAnim 8s forwards ease-in-out;
+  }
+
+  @keyframes logoAnim {
+    0% {
+      top: -10%;
+    }
+    33% {
+      top: 50%;
+      transform: rotate(0deg);
+    }
+    66% {
+      top: 50%;
+      transform: rotate(360deg);
+    }
+    75% {
+      top: 50%;
+    }
+    100% {
+      top: -10%;
+      transform: rotate(360deg);
+    }
+  }
+
+  .logoAnimation {
+    width: 30vw;
+    height: 30vh;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .courtainUp {
+    height: calc(60% + 4px);
+    width: 100%;
+    position: absolute;
+    top: -10%;
+    transform: skewY(-5deg);
+
+    background-color: #131314;
+
+    animation: courtainUpAnim 2.25s 6s forwards ease-in;
+  }
+
+  .courtainDown {
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: skewY(-5deg);
+
+    background-color: #131314;
+
+    animation: courtainDownAnim 2.25s 6s forwards ease-in;
+  }
+
+  @keyframes courtainUpAnim {
+    to {
+      top: -120%;
+    }
+  }
+
+  @keyframes courtainDownAnim {
+    to {
+      top: 120%;
+    }
+  }
+
   @media only screen and (max-width: 767px) {
     .projectsWrapper {
       padding-top: 6rem;
@@ -152,6 +244,15 @@ import Contact from "../components/Contact/Contact.astro";
 
   window.addEventListener("load", () => {
     allSections.forEach((el) => observer.observe(el!));
+
+    const courtainDownElement = document.getElementsByClassName(
+      "courtainDown"
+    )[0]! as HTMLDivElement;
+
+    courtainDownElement.addEventListener("animationend", () => {
+      courtainDownElement.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
   });
 </script>
 
@@ -165,61 +266,70 @@ import Contact from "../components/Contact/Contact.astro";
     <title>Bartosz Mrosek Portfolio</title>
   </head>
   <body>
-    <NavigationMobile client:only="react" />
-    <main>
-      <section class="homeWrapper">
-        <Home />
-      </section>
-      <Experience />
-      <section id="Projects" class="projectsWrapper">
-        <div class="projectsTopGroup htmlDecorators">
-          <pre>
+    <div class="overlay">
+      <div class="courtainUp"></div>
+      <div class="courtainDown"></div>
+      <div class="logoWrapper">
+        <img src={MyLogoSrc} class="logoAnimation" />
+      </div>
+    </div>
+    <div class="container">
+      <NavigationMobile client:only="react" />
+      <main>
+        <section class="homeWrapper">
+          <Home />
+        </section>
+        <Experience />
+        <section id="Projects" class="projectsWrapper">
+          <div class="projectsTopGroup htmlDecorators">
+            <pre>
     &lt;section id="Projects"&gt;
-          </pre>
-        </div>
-        <Projects client:idle client:only="react" />
-        <div class="projectsBottomGroup htmlDecorators">
-          <pre>
+            </pre>
+          </div>
+          <Projects client:idle client:only="react" />
+          <div class="projectsBottomGroup htmlDecorators">
+            <pre>
     &lt;/section&gt;
-          </pre>
-        </div>
-      </section>
-      <section class="aboutMeWrapper" id="AboutMe">
-        <div class="htmlDecorators aboutMeTopGroup">
-          <pre>
+            </pre>
+          </div>
+        </section>
+        <section class="aboutMeWrapper" id="AboutMe">
+          <div class="htmlDecorators aboutMeTopGroup">
+            <pre>
     &lt;section id="AboutMe"&gt;
-          </pre>
-        </div>
-        <AboutMe />
-        <div class="htmlDecorators aboutMeBottomGroup">
-          <pre>
+            </pre>
+          </div>
+          <AboutMe />
+          <div class="htmlDecorators aboutMeBottomGroup">
+            <pre>
     &lt;/section&gt;
-          </pre>
-        </div>
-      </section>
-      <section class="contactWrapper" id="Contact">
-        <div class="htmlDecorators contactTopGroup">
-          <pre>
+            </pre>
+          </div>
+        </section>
+        <section class="contactWrapper" id="Contact">
+          <div class="htmlDecorators contactTopGroup">
+            <pre>
     &lt;section id="Contact"&gt;
-          </pre>
-        </div>
-        <Contact />
-        <div class="htmlDecorators">
-          <pre>
+            </pre>
+          </div>
+          <Contact />
+          <div class="htmlDecorators">
+            <pre>
     &lt;/section&gt;
   &lt;/body&gt;
-          </pre>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p class="footerContent">
-        <span class="specialRed">Made with</span>
-        <span class="neonSpecialRed">❤️</span>
-        <span class="copyright">
-          <wbr />• &copy; Copyright 2023 Bartosz Mrosek. All Rights Reserved</span
-        >
-      </p>
-    </footer>
+            </pre>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p class="footerContent">
+          <span class="specialRed">Made with</span>
+          <span class="neonSpecialRed">❤️</span>
+          <span class="copyright">
+            <wbr />• &copy; Copyright 2023 Bartosz Mrosek. All Rights Reserved</span
+          >
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
