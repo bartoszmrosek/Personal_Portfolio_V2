@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import SvgRepo from "../../Graphics/SvgRepo";
 import type { Project } from "../project";
 import styles from "./ProjectTemplate.module.css";
@@ -10,20 +10,52 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
   links,
   invert = false,
 }) => {
+  const [carouselItem, setCarouselItem] = useState(0);
+
   const interceptor = useCallback((e: React.MouseEvent) => {
     if (links.repoLink.trim().length < 1) {
       e.preventDefault();
     }
   }, []);
 
+  const changeCarouselFromIndicator = useCallback((newItem: number)=>{
+    setCarouselItem(newItem);
+  }, [])
+  
+  const moveCarouselRight = useCallback(()=>{
+    setCarouselItem(itemNumber => itemNumber+1 < imageInformations.dekstopSrc.length ? itemNumber+1 : itemNumber)
+  }, [])
+  
+  const moveCarouselLeft = useCallback(()=>{
+    setCarouselItem(itemNumber => itemNumber-1 >= 0 ? itemNumber-1 : itemNumber)
+  }, [])
+
   return (
     <section className={`${styles.wrapper} ${invert ? styles.invert : null}`}>
       <div className={styles.imgWrapper}>
-        <img
-          src={imageInformations.dekstopSrc}
-          className={styles.image}
-          alt={`${title} main page screenshot`}
-        />
+        <div className={styles.imgContainer}>
+          <div className={styles.controlsWrapper}>
+            <button className={styles.controlBtn} onClick={moveCarouselLeft}>
+              <img src="./controlArrow.svg" className={styles.controlArrow} />
+            </button>
+          <section className={styles.imageIndicators}>
+            {imageInformations.dekstopSrc.map((_e, i)=><button key={i} className={`${styles.indicator} ${i === carouselItem ? styles.activeIndicator : null}`} onClick={()=>changeCarouselFromIndicator(i)} />)}
+          </section>
+            <button className={styles.controlBtn} onClick={moveCarouselRight}>
+              <img src="./controlArrow.svg" className={`${styles.controlArrow} ${styles.rightControl}`} />
+            </button>
+          </div>
+          <div className={styles.carousel} style={{transform: `translate(-${105*carouselItem}% ,0)`}}>
+          {imageInformations.dekstopSrc.map((src)=>
+            <img
+            src={src}
+            key={src}
+            className={styles.image}
+            alt={`${title} main page screenshot`}
+            />
+            )}
+          </div>
+        </div>
       </div>
       <section className={styles.content}>
         <h1 className={`${styles.header} neonWhite`}>{title}</h1>

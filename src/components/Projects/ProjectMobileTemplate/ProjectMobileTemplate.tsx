@@ -46,7 +46,7 @@ const ProjectMobileTemplate = forwardRef<
           isActive={imageInformations.isActive}
           id={imageInformations.id}
           chgImgView={chgImgView}
-          src={imageInformations.mobileSrc}
+          src={imageInformations.mobileSrc[0]}
         />
       </div>
       <div className={styles.links}>

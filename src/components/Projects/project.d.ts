@@ -2,8 +2,8 @@ export type Project = {
   imageInformations: {
     id: number;
     isActive: boolean;
-    mobileSrc: string;
-    dekstopSrc: string;
+    mobileSrc: string[];
+    dekstopSrc: string[];
   };
   title: string;
   description: string;
