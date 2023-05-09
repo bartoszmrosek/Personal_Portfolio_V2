@@ -23,7 +23,7 @@ const initalProjects: Project[] = [
     imageInformations: {
       id: 1,
       isActive: false,
-      mobileSrc: [messengerSrc],
+      mobileSrc: [messengerSrc, hexagonalSrc, messengerSrc, hexagonalSrc],
       dekstopSrc: [messengerDesktopSrc, hexagonalDesktopSrc, messengerDesktopSrc, hexagonalDesktopSrc],
     },
   },

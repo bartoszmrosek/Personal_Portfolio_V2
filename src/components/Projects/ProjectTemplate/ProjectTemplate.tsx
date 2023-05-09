@@ -38,9 +38,9 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
             <button className={styles.controlBtn} onClick={moveCarouselLeft}>
               <img src="./controlArrow.svg" className={styles.controlArrow} />
             </button>
-          <section className={styles.imageIndicators}>
-            {imageInformations.dekstopSrc.map((_e, i)=><button key={i} className={`${styles.indicator} ${i === carouselItem ? styles.activeIndicator : null}`} onClick={()=>changeCarouselFromIndicator(i)} />)}
-          </section>
+            <section className={styles.imageIndicators}>
+              {imageInformations.dekstopSrc.map((_e, i)=><button key={i} className={`${styles.indicator} ${i === carouselItem ? styles.activeIndicator : null}`} onClick={()=>changeCarouselFromIndicator(i)} />)}
+            </section>
             <button className={styles.controlBtn} onClick={moveCarouselRight}>
               <img src="./controlArrow.svg" className={`${styles.controlArrow} ${styles.rightControl}`} />
             </button>
@@ -51,7 +51,7 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
             src={src}
             key={src}
             className={styles.image}
-            alt={`${title} main page screenshot`}
+            alt={`${title} page screenshot`}
             />
             )}
           </div>
