@@ -9,6 +9,6 @@ export type Project = {
   description: string;
   links: {
     liveLink: string;
-    repoLink: string;
+    repoLinks: string[];
   };
 };
