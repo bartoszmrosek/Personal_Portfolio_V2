@@ -84,7 +84,7 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
             <span>Live</span>
             <SvgRepo type="Link" size={{ width: "2rem", height: "2rem" }} />
           </a>
-          {links.repoLinks.map((link) => (
+          {links.repoLinks.map((link, linkIndex) => (
             <a
               key={link}
               href={link}
@@ -94,7 +94,13 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
               target="_blank"
               referrerPolicy="no-referrer"
             >
-              <span>Repo</span>
+              <span>
+                {links.repoLinks.length === 1
+                  ? "Repo"
+                  : linkIndex === 0
+                  ? "Game"
+                  : "API"}
+              </span>
               <SvgRepo type="Github" size={{ width: "2rem", height: "2rem" }} />
             </a>
           ))}

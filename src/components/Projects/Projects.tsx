@@ -1,6 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
 
+import jackBetDesktopSrc from "./images/blackjack/bet-desktop.png";
+import jackDecisionDesktopSrc from "./images/blackjack/decision-desktop.png";
+import jackHomepageDesktopSrc from "./images/blackjack/homepage-desktop.png";
+import jackPreviewDesktopSrc from "./images/blackjack/preview-desktop.png";
+import jackRoomsDesktopSrc from "./images/blackjack/rooms-desktop.png";
+import jackBetMobileSrc from "./images/blackjack/bet-mobile.png";
+import jackDecisionMobileSrc from "./images/blackjack/decision-mobile.png";
+import jackHomePageMobileSrc from "./images/blackjack/homepage-mobile.png";
+import jackPreviewMobileSrc from "./images/blackjack/preview-mobile.png";
+import jackRoomsMobileSrc from "./images/blackjack/rooms-mobile.png";
+
 import messMainDesktopSrc from "./images/messenger/main-desktop.png";
 import messSearchDesktopSrc from "./images/messenger/search-desktop.png";
 import messRegisterDesktopSrc from "./images/messenger/register-desktop.png";
@@ -19,6 +30,35 @@ import ProjectMobileTemplate from "./ProjectMobileTemplate/ProjectMobileTemplate
 import ProjectTemplate from "./ProjectTemplate/ProjectTemplate";
 
 const initalProjects: Project[] = [
+  {
+    title: "Online blackjack app",
+    description: `I have developed a professional implementation of the popular card game 'blackjack'. The application allows multiple players to enjoy the game together. The front and backend are built with Typescript, using ReactJS with Vite bundler for the front-end and Node.js for the back-end. Communication is facilitated through REST API endpoints and the socket-io library. Thorough testing was conducted using POSTMAN for the backend and VITEST for front-end unit tests to ensure key features are robust.`,
+    links: {
+      liveLink: "https://bartoszmrosek.github.io/Blackjack-Game/",
+      repoLinks: [
+        "https://github.com/bartoszmrosek/Blackjack-Game",
+        "https://github.com/bartoszmrosek/Blackjack-API",
+      ],
+    },
+    imageInformations: {
+      id: 0,
+      isActive: false,
+      mobileSrc: [
+        jackBetMobileSrc,
+        jackDecisionMobileSrc,
+        jackPreviewMobileSrc,
+        jackRoomsMobileSrc,
+        jackHomePageMobileSrc,
+      ],
+      dekstopSrc: [
+        jackBetDesktopSrc,
+        jackDecisionDesktopSrc,
+        jackPreviewDesktopSrc,
+        jackRoomsDesktopSrc,
+        jackHomepageDesktopSrc,
+      ],
+    },
+  },
   {
     title: "Messenger app",
     description:

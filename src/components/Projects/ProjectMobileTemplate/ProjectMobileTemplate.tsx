@@ -7,10 +7,10 @@ const ProjectMobileTemplate = forwardRef<
   HTMLDivElement,
   Project & { chgImgView: (id: number) => void }
 >(function ProjectMobileTemplate(
-  { imageInformations, title, links, chgImgView: chgImgView },
+  { imageInformations, title, links, chgImgView: chgImgView, description },
   ref
 ) {
-  const [carouselItem, setCarouselItem] = useState(0);
+  const [carouselItem, setCarouselItem] = useState(1);
 
   const changeCarouselFromIndicator = useCallback((newItem: number) => {
     setCarouselItem(newItem);
@@ -18,7 +18,7 @@ const ProjectMobileTemplate = forwardRef<
 
   const moveCarouselRight = useCallback(() => {
     setCarouselItem((itemNumber) =>
-      itemNumber + 1 < imageInformations.mobileSrc.length
+      itemNumber + 1 <= imageInformations.mobileSrc.length
         ? itemNumber + 1
         : itemNumber
     );
@@ -41,6 +41,9 @@ const ProjectMobileTemplate = forwardRef<
           className={styles.carousel}
           style={{ transform: `translate(-${100 * carouselItem}% ,0)` }}
         >
+          <div className={styles.imageDescriptionWrapper}>
+            <p className={styles.imageDescription}>{description}</p>
+          </div>
           {imageInformations.mobileSrc.map((src) => (
             <div className={styles.imgWrapper} key={src}>
               <img
@@ -59,13 +62,14 @@ const ProjectMobileTemplate = forwardRef<
         >
           <button className={styles.controlBtn} onClick={moveCarouselLeft}>
             <img src="./controlArrow.svg" className={styles.controlArrow} />
+            {carouselItem === 1 && <p className={styles.controlText}>Info</p>}
           </button>
           <section
             className={`${styles.imageIndicators} ${
               imageInformations.isActive && styles.activeIndicators
             }`}
           >
-            {imageInformations.mobileSrc.map((_e, i) => (
+            {["", ...imageInformations.mobileSrc].map((_e, i) => (
               <button
                 key={i}
                 className={`${styles.indicator} ${
@@ -80,6 +84,7 @@ const ProjectMobileTemplate = forwardRef<
               src="./controlArrow.svg"
               className={`${styles.controlArrow} ${styles.rightControl}`}
             />
+            {carouselItem === 0 && <p className={styles.controlText}>Images</p>}
           </button>
         </div>
       </div>
@@ -93,7 +98,7 @@ const ProjectMobileTemplate = forwardRef<
           <span>Live</span>
           <SvgRepo type="Link" size={{ width: "2rem", height: "2rem" }} />
         </a>
-        {links.repoLinks.map((link) => (
+        {links.repoLinks.map((link, linkIndex) => (
           <a
             key={link}
             href={link}
@@ -103,7 +108,13 @@ const ProjectMobileTemplate = forwardRef<
             target="_blank"
             referrerPolicy="no-referrer"
           >
-            <span>{link.trim().length > 0 ? "Repo" : "Not available"}</span>
+            <span>
+              {links.repoLinks.length === 1
+                ? "Repo"
+                : linkIndex === 0
+                ? "Game"
+                : "API"}
+            </span>
             <SvgRepo type="Github" size={{ width: "2rem", height: "2rem" }} />
           </a>
         ))}

@@ -12,9 +12,9 @@
   font-size: 150%;
 }
 
-.imgWrapper{
+.imgWrapper {
   min-width: 100%;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,14 +99,14 @@
   overflow: hidden;
 }
 
-.carousel{
+.carousel {
   display: flex;
   flex-direction: row;
 
   transition: transform 1s ease-in-out;
 }
 
-.controlsWrapper{
+.controlsWrapper {
   position: absolute;
 
   height: 100%;
@@ -119,31 +119,62 @@
   z-index: 1;
 }
 
-.controlBtn{
+.controlBtn {
   background-color: transparent;
 
   border: 0;
 
   cursor: pointer;
 
+  position: relative;
+
   transition: ease-in-out 50ms transform;
 }
 
-.controlBtn:active{
+.controlBtn:active {
   transform: scale(0.85);
 }
 
-.controlArrow{
+.controlText {
+  position: absolute;
+
+  width: 100%;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 110%;
+}
+
+.controlArrow {
   width: 3.5rem;
   aspect-ratio: 1/1;
 }
 
-.rightControl{
+.rightControl {
   transform: rotate(180deg);
 }
 
+.imageDescriptionWrapper {
+  min-width: 100%;
+  min-height: 100%;
 
-.imageIndicators{
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageDescription {
+  width: 75vw;
+
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 110%;
+}
+
+.imageIndicators {
   width: 100%;
   height: 100%;
 
@@ -155,13 +186,13 @@
   gap: 1rem;
 }
 
-.indicator{
+.indicator {
   width: 1.25rem;
   aspect-ratio: 1/1;
 
   border-radius: 50%;
   border: 0;
-  
+
   background-color: #6e5494;
 
   margin-bottom: 7rem;
@@ -173,10 +204,10 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.activeIndicators{
+.activeIndicators {
   display: flex;
 }
 
-.activeIndicator{
+.activeIndicator {
   opacity: 1;
 }
