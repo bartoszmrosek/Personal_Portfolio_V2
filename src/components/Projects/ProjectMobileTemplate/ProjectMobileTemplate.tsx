@@ -67,7 +67,7 @@ const ProjectMobileTemplate = forwardRef<
           <section
             className={`${styles.imageIndicators} ${
               imageInformations.isActive && styles.activeIndicators
-            }`}
+            } ${carouselItem === 0 && styles.disabledIndicators}`}
           >
             {["", ...imageInformations.mobileSrc].map((_e, i) => (
               <button

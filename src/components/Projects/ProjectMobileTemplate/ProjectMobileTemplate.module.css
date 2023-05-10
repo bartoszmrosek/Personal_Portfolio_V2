@@ -211,3 +211,7 @@
 .activeIndicator {
   opacity: 1;
 }
+
+.disabledIndicators {
+  display: none;
+}
