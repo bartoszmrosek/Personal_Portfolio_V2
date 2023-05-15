@@ -263,6 +263,7 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
           class="formField"
           type="text"
           required
+          aria-required="true"
           placeholder="Name"
         />
       </label>
@@ -273,6 +274,7 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
           class="formField"
           type="email"
           required
+          aria-required="true"
           placeholder="E-mail"
         />
       </label>
@@ -282,12 +284,13 @@ import LinkedInLogoSrc from "./LinkedInLogo.png";
           name="message"
           class="formField formTextArea"
           required
+          aria-required="true"
           placeholder="Message"
           rows="5"
           cols="35"></textarea>
       </label>
       <div class="btnWrapper">
-        <button type="submit" class="formSubmitBtn">Submit</button>
+        <button type="submit" class="formSubmitBtn" role="alert">Submit</button>
       </div>
     </form>
   </div>
