@@ -61,7 +61,7 @@ const ProjectMobileTemplate = forwardRef<
           onClick={() => chgImgView(imageInformations.id)}
         >
           <button className={styles.controlBtn} onClick={moveCarouselLeft}>
-            <img src="./controlArrow.svg" className={styles.controlArrow} />
+            <img src="./controlArrow.svg" className={styles.controlArrow} alt="Previous image" />
             {carouselItem === 1 && <p className={styles.controlText}>Info</p>}
           </button>
           <section
@@ -83,6 +83,7 @@ const ProjectMobileTemplate = forwardRef<
             <img
               src="./controlArrow.svg"
               className={`${styles.controlArrow} ${styles.rightControl}`}
+              alt="Next image"
             />
             {carouselItem === 0 && <p className={styles.controlText}>Images</p>}
           </button>

@@ -36,7 +36,7 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
         <div className={styles.imgContainer}>
           <div className={styles.controlsWrapper}>
             <button className={styles.controlBtn} onClick={moveCarouselLeft}>
-              <img src="./controlArrow.svg" className={styles.controlArrow} />
+              <img src="./controlArrow.svg" className={styles.controlArrow} alt="Previous image/section" />
             </button>
             <section className={styles.imageIndicators}>
               {imageInformations.dekstopSrc.map((_e, i) => (
@@ -53,6 +53,7 @@ const ProjectTemplate: React.FC<Project & { invert?: boolean }> = ({
               <img
                 src="./controlArrow.svg"
                 className={`${styles.controlArrow} ${styles.rightControl}`}
+                alt="Next image/section"
               />
             </button>
           </div>
