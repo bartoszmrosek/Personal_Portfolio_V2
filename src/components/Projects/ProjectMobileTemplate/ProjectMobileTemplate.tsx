@@ -37,7 +37,7 @@ const ProjectMobileTemplate = forwardRef<
 
   const handleTouchEnd = useCallback((e: React.TouchEvent<HTMLDivElement>)=>{
       const endingTouchX = e.changedTouches[0].screenX;
-      if(Math.abs(Math.abs(endingTouchX) - Math.abs(startingTouchX)) > 100){
+      if(Math.abs(Math.abs(endingTouchX) - Math.abs(startingTouchX)) > 75){
         if(endingTouchX < startingTouchX) moveCarouselRight()
         if(endingTouchX > startingTouchX) moveCarouselLeft()
       }
