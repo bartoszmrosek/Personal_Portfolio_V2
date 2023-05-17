@@ -11,6 +11,7 @@ const ProjectMobileTemplate = forwardRef<
   ref
 ) {
   const [carouselItem, setCarouselItem] = useState(1);
+  const [startingTouchX, setStartingTouchX] = useState<number>(0)
 
   const changeCarouselFromIndicator = useCallback((newItem: number) => {
     setCarouselItem(newItem);
@@ -29,6 +30,19 @@ const ProjectMobileTemplate = forwardRef<
       itemNumber - 1 >= 0 ? itemNumber - 1 : itemNumber
     );
   }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>)=>{
+    setStartingTouchX(e.changedTouches[0].screenX)
+  }, [])
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent<HTMLDivElement>)=>{
+      const endingTouchX = e.changedTouches[0].screenX;
+      if(Math.abs(Math.abs(endingTouchX) - Math.abs(startingTouchX)) > 100){
+        if(endingTouchX < startingTouchX) moveCarouselRight()
+        if(endingTouchX > startingTouchX) moveCarouselLeft()
+      }
+  }, [startingTouchX])
+  
   return (
     <section className={styles.project}>
       <h1 className={`${styles.projectHeader} neonWhite`}>{title}</h1>
@@ -59,6 +73,8 @@ const ProjectMobileTemplate = forwardRef<
         <div
           className={styles.controlsWrapper}
           onClick={() => chgImgView(imageInformations.id)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button className={styles.controlBtn} onClick={moveCarouselLeft}>
             <img src="./controlArrow.svg" className={styles.controlArrow} alt="Previous image" />
