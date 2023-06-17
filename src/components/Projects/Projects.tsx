@@ -64,7 +64,7 @@ const initalProjects: Project[] = [
     description:
       "The project serves as a practical exercise in real-time communication and cloud database storage. Built entirely in Typescript, the frontend features a combination of ReactJs and Tailwindcss, while the backend utilizes NodeJs with ExpressJs. Communication is facilitated through both REST API and WebSocket connections, powered by Socket-io technology. Messages are stored in a MySQL database for optimal data management.",
     links: {
-      liveLink: "https://emotekpl-messenger-dev.netlify.app/",
+      liveLink: "https://emotekpl-messenger-prod.netlify.app/",
       repoLinks: ["https://github.com/bartoszmrosek/messenger_app"],
     },
     imageInformations: {
