@@ -1,18 +1,19 @@
 ---
 import CSS3LogoSrc from "./logos/CSS3Logo.svg";
 import EslintLogoSrc from "./logos/ESLintLogo.png";
-import ExpressLogoSrc from "./logos/ExpressLogo.png";
 import GitLogoSrc from "./logos/GitLogo.png";
 import HTML5LogoSrc from "./logos/HTML5Logo.png";
 import JavascriptLogoSrc from "./logos/JavaScriptLogo.png";
 import JestLogoSrc from "./logos/JestLogo.png";
-import JWTLogoSrc from "./logos/JWTLogo.svg";
+import ReduxLogoSrc from "./logos/ReduxLogo.svg";
 import NodeJsLogoSrc from "./logos/NodeJsLogo.svg";
-import SQLLogoSrc from "./logos/SQLLogo.png";
-import TailwindLogo from "./logos/TailwindLogo.svg";
-import TypeORMLogo from "./logos/TypeORMLogo.svg";
+import SocketIoLogoSrc from "./logos/SocketIoLogo.svg";
+import TypeORMLogoSrc from "./logos/TypeORMLogo.svg";
 import TypescriptLogoSrc from "./logos/TypeScriptLogo.png";
 import ReactIconSrc from "./logos/ReactLogo.png";
+import AngularLogoSrc from "./logos/AngularLogo.svg";
+import NestJsLogoSrc from "./logos/NestJsLogo.svg";
+import PrismaLogoSrc from "./logos/PrismaLogo.svg";
 ---
 
 <style>
@@ -59,7 +60,7 @@ import ReactIconSrc from "./logos/ReactLogo.png";
 
   .technologiesKnow {
     display: grid;
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
 
     justify-items: center;
     align-items: center;
@@ -70,11 +71,6 @@ import ReactIconSrc from "./logos/ReactLogo.png";
   .technologiesKnow > * > * {
     height: 64px;
     width: 64px;
-  }
-
-  .sqlCell {
-    grid-column: 3/5;
-    width: 128px;
   }
 
   .skills {
@@ -239,20 +235,13 @@ import ReactIconSrc from "./logos/ReactLogo.png";
       <a referrerpolicy="no-referrer" target="_blank" href="https://react.dev/">
         <img src={ReactIconSrc} alt="React logo" />
       </a>
-      <a referrerpolicy="no-referrer" target="_blank" href="https://jwt.io/">
-        <img src={JWTLogoSrc} alt="JWT logo" />
-      </a>
       <a
         referrerpolicy="no-referrer"
         target="_blank"
-        href="https://tailwindcss.com/"
+        href="https://redux.js.org/"
       >
-        <img src={TailwindLogo} alt="Talwindcss logo" />
+        <img src={ReduxLogoSrc} alt="Redux logo" />
       </a>
-      <img src={SQLLogoSrc} class="sqlCell" alt="SQL logo" />
-    </div>
-    <h2 class="neonYellow skillsHeader">What I am learning</h2>
-    <div class="technologiesLearn">
       <a
         target="_blank"
         referrerpolicy="no-referrer"
@@ -260,19 +249,39 @@ import ReactIconSrc from "./logos/ReactLogo.png";
       >
         <img src={NodeJsLogoSrc} alt="Nodejs logo" />
       </a>
-      <a
-        target="_blank"
-        referrerpolicy="no-referrer"
-        href="https://expressjs.com/"
-      >
-        <img src={ExpressLogoSrc} alt="Express logo" />
+      <a target="_blank" referrerpolicy="no-referrer" href="https://socket.io/">
+        <img src={SocketIoLogoSrc} alt="Socket-io logo" />
       </a>
       <a
         target="_blank"
         referrerpolicy="no-referrer"
         href="https://typeorm.io/"
       >
-        <img src={TypeORMLogo} alt="TypeORM logo" />
+        <img src={TypeORMLogoSrc} alt="TypeORM logo" />
+      </a>
+    </div>
+    <h2 class="neonYellow skillsHeader">What I am learning</h2>
+    <div class="technologiesLearn">
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://angular.io/"
+      >
+        <img src={AngularLogoSrc} alt="Angular logo" />
+      </a>
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://nestjs.com/"
+      >
+        <img src={NestJsLogoSrc} alt="NestJs logo" />
+      </a>
+      <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href="https://www.prisma.io/"
+      >
+        <img src={PrismaLogoSrc} alt="Prisma logo" />
       </a>
     </div>
   </section>
